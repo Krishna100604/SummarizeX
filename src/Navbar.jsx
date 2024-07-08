@@ -61,7 +61,7 @@ const Navbar = () => {
         {/* GitHub Button */}
         <motion.button
           type="button"
-          onClick={() => window.open("https://github.com/Krishna100604")}
+          onClick={() => window.open("https://github.com/Krishna100604/AI-Summarizer")}
           className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
