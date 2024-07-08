@@ -7,7 +7,9 @@
 /* tailwind utilities */
 @tailwind utilities;
 
-/* Gradient and layout styles */
+/* Custom styles */
+
+/* Main section */
 .main {
   width: 100vw;
   min-height: 100vh;
@@ -15,7 +17,7 @@
   display: flex;
   justify-content: center;
   padding: 120px 24px 160px 24px;
-  pointer-events: none;
+  /* pointer-events: none; Remove this line */
 }
 
 .main:before {
@@ -40,22 +42,23 @@
   filter: invert(1);
 }
 
+/* Gradient overlay */
 .gradient {
   height: fit-content;
   z-index: 3;
   width: 100%;
   max-width: 640px;
   background-image: radial-gradient(
-      at 27% 37%,
-      hsla(215, 98%, 61%, 1) 0px,
-      transparent 0%
-    ),
-    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+    at 27% 37%,
+    hsla(215, 98%, 61%, 1) 0px,
+    transparent 0%
+  ),
+  radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+  radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+  radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+  radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+  radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+  radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
   position: absolute;
   content: "";
   width: 100%;
@@ -65,56 +68,189 @@
   opacity: 0.15;
 }
 
-@media screen and (max-width: 640px) {
-  .main {
-    padding: 0;
-  }
-}
-
+/* App container */
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
+/* Buttons */
 .black_btn {
   @apply rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black;
 }
 
+/* Header text */
 .head_text {
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
 }
 
+/* Orange gradient text */
 .orange_gradient {
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
 
+/* Description text */
 .desc {
   @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
 }
 
+/* URL input */
 .url_input {
   @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 pl-10 pr-12 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
+/* Submit button */
 .submit_btn {
   @apply hover:border-gray-700 hover:text-gray-700 absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded border border-gray-200 font-sans text-sm font-medium text-gray-400;
 }
 
+/* Link card */
 .link_card {
   @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer;
 }
 
+/* Copy button */
 .copy_btn {
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
 }
 
+/* Blue gradient text */
 .blue_gradient {
   @apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
 }
 
+/* Summary box */
 .summary_box {
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
 }
 
+/* About and Contact section styles */
 .about-section, .contact-section {
   @apply p-8 bg-white bg-opacity-70 rounded-lg shadow-md mt-16 mx-auto text-center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .main {
+    padding: 80px 24px 100px 24px;
+  }
+
+  .app {
+    @apply sm:px-10 px-4;
+  }
+
+  .head_text {
+    @apply text-4xl;
+  }
+
+  .desc {
+    @apply text-base;
+  }
+
+  .url_input {
+    @apply py-2 pl-8 pr-10 text-xs;
+  }
+
+  .submit_btn {
+    @apply my-1 mr-1 w-8 h-8 text-xs;
+  }
+
+  .link_card {
+    @apply p-2 gap-2;
+  }
+
+  .copy_btn {
+    @apply w-6 h-6;
+  }
+
+  .summary_box {
+    @apply p-3;
+  }
+
+  .about-section, .contact-section {
+    @apply p-6;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 60px 24px 80px 24px;
+  }
+
+  .app {
+    @apply sm:px-8 px-3;
+  }
+
+  .head_text {
+    @apply text-3xl;
+  }
+
+  .desc {
+    @apply text-base;
+  }
+
+  .url_input {
+    @apply py-2 pl-6 pr-8 text-xs;
+  }
+
+  .submit_btn {
+    @apply my-1 mr-1 w-7 h-7 text-xs;
+  }
+
+  .link_card {
+    @apply p-2 gap-1.5;
+  }
+
+  .copy_btn {
+    @apply w-5 h-5;
+  }
+
+  .summary_box {
+    @apply p-2;
+  }
+
+  .about-section, .contact-section {
+    @apply p-4;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 40px 24px 60px 24px;
+  }
+
+  .app {
+    @apply sm:px-6 px-3;
+  }
+
+  .head_text {
+    @apply text-2xl;
+  }
+
+  .desc {
+    @apply text-sm;
+  }
+
+  .url_input {
+    @apply py-2 pl-4 pr-6 text-xs;
+  }
+
+  .submit_btn {
+    @apply my-1 mr-1 w-6 h-6 text-xs;
+  }
+
+  .link_card {
+    @apply p-1.5 gap-1;
+  }
+
+  .copy_btn {
+    @apply w-4 h-4;
+  }
+
+  .summary_box {
+    @apply p-1.5;
+  }
+
+  .about-section, .contact-section {
+    @apply p-3;
+  }
 }
