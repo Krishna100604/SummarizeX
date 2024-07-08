@@ -1,15 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaHome, FaInfoCircle, FaEnvelope, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'; // Import FaTwitter, FaFacebook, FaLinkedin
-import { logo } from "../assets";
+import React, { useEffect, useRef } from 'react';
+import { FaTwitter, FaFacebook, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Contact = () => {
+  const contactSectionRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the contact section when the component mounts
+    contactSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   return (
     <main className="w-full flex flex-col items-center justify-center pt-8">
-     
-
-      <section className="contact-section w-full max-w-3xl mt-16 mx-auto text-center p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
+      <section ref={contactSectionRef} className="contact-section w-full max-w-3xl mt-16 mx-auto text-center p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
         <p className="text-lg text-gray-600 mb-6">
           Have any questions or feedback? Feel free to reach out to us!

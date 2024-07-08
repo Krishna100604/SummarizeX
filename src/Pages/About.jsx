@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaUsers, FaRegLightbulb, FaHeart, FaHome, FaInfoCircle, FaEnvelope } from 'react-icons/fa';
-import { logo } from "../assets";
+import { FaUsers, FaRegLightbulb, FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const About = () => {
+  const aboutSectionRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the about section when the component mounts
+    aboutSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   return (
-    <main className="w-full flex flex-col items-center justify-center p-10 pt-5">
-    
-      <section className="about-section w-full max-w-3xl mt-16 mx-auto text-center p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
+    <main className="w-full flex flex-col items-center justify-center p-10 pt-2 mb-12">
+      <section ref={aboutSectionRef} className="about-section w-full max-w-3xl mt-16 mx-auto text-center p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
         <p className="text-lg text-gray-600 mb-6">
           We are dedicated to providing the best summarization tool, making it easier to digest lengthy articles in a concise format.
