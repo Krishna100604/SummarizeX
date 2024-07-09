@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { copy, linkIcon, loader, tick } from '../assets';
-import { useLazyGetSummaryQuery } from '../services/article';
+import React, { useEffect, useState, useRef } from "react";
+import { copy, linkIcon, loader, tick } from "../assets";
+import { useLazyGetSummaryQuery } from "../services/article";
 
 const Demo = () => {
   const [article, setArticle] = useState({
-    url: '',
-    summary: ''
+    url: "",
+    summary: "",
   });
   const [allArticles, setAllArticles] = useState([]);
   const [copied, setCopied] = useState("");
@@ -17,7 +17,9 @@ const Demo = () => {
   const summaryRef = useRef(null); // Reference to summary section
 
   useEffect(() => {
-    const articlesFromLocalStorage = JSON.parse(localStorage.getItem('articles'));
+    const articlesFromLocalStorage = JSON.parse(
+      localStorage.getItem("articles")
+    );
     if (articlesFromLocalStorage) {
       setAllArticles(articlesFromLocalStorage);
     }
@@ -25,7 +27,7 @@ const Demo = () => {
 
   useEffect(() => {
     if (shouldScroll && summaryRef.current) {
-      summaryRef.current.scrollIntoView({ behavior: 'smooth' });
+      summaryRef.current.scrollIntoView({ behavior: "smooth" });
       setShouldScroll(false); // Reset shouldScroll state after scrolling
     }
   }, [shouldScroll]);
@@ -42,12 +44,12 @@ const Demo = () => {
         setArticle(newArticle);
         setAllArticles(updatedAllArticles);
 
-        localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
+        localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
 
         setShouldScroll(true); // Trigger scroll to loader image
       }
     } catch (error) {
-      console.error('Error fetching summary:', error);
+      console.error("Error fetching summary:", error);
     }
   };
 
@@ -64,40 +66,41 @@ const Demo = () => {
   };
 
   return (
-    <section className='mt-16 w-full max-w-4xl mx-auto px-4'>
+    <section className="mt-16 w-full max-w-4xl mx-auto px-4">
       {/* Search */}
-      <div className='flex flex-col w-full gap-4'>
+      <div className="flex flex-col w-full gap-4">
         <form
-          className='relative flex justify-center items-center shadow-lg p-4 rounded-lg bg-white'
+          className="relative flex justify-center items-center shadow-lg p-4 rounded-lg bg-white"
           onSubmit={handleSubmit}
         >
           <img
             src={linkIcon}
-            alt='link-icon'
-            className='absolute left-6 w-6 h-6'
+            alt="link-icon"
+            className="absolute left-6 w-6 h-6"
           />
           <input
-            type='url'
-            placeholder='Paste the article link'
+            type="url"
+            placeholder="Paste the article link"
             value={article.url}
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
             required
-            className='w-full pl-12 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'
+            className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
           <button
-            type='submit'
-            className='ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'
+            type="submit"
+            className="ml-2 p-1 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            style={{ fontSize: "2rem" }}
           >
-            ↵
+            &#x203A;
           </button>
         </form>
 
         {/* Toggle Button */}
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className='mt-4 px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50'
+          className="mt-4 px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
         >
-          {showHistory ? 'Hide History' : 'Show History'}
+          {showHistory ? "Hide History" : "Show History"}
         </button>
 
         {/* Browse URL history */}
@@ -109,7 +112,10 @@ const Demo = () => {
                 onClick={() => setArticle(item)}
                 className="flex items-center p-2 bg-white shadow-md rounded-lg cursor-pointer hover:bg-gray-100"
               >
-                <div className="copy_btn mr-2" onClick={() => handleCopy(item.url)}>
+                <div
+                  className="copy_btn mr-2"
+                  onClick={() => handleCopy(item.url)}
+                >
                   <img
                     src={copied === item.url ? tick : copy}
                     alt="copy_icon"
@@ -128,23 +134,27 @@ const Demo = () => {
       {/* Results */}
       <div className="my-10 max-w-full flex justify-center">
         {isFetching ? (
-          <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
+          <img src={loader} alt="loader" className="w-20 h-20 object-contain" />
         ) : error ? (
           <p className="font-inter font-bold text-black text-center">
             This isn't supposed to happen..
             <br />
-            <span className='text-red-500'>
-              {error?.data?.error}
-            </span>
+            <span className="text-red-500">{error?.data?.error}</span>
           </p>
         ) : (
           article.summary && (
-            <div ref={summaryRef} className="flex flex-col gap-4 p-4 bg-white shadow-lg rounded-lg w-full">
+            <div
+              ref={summaryRef}
+              className="flex flex-col gap-4 p-4 bg-white shadow-lg rounded-lg w-full"
+            >
               <div className="flex justify-between items-start">
                 <h2 className="font-satoshi font-bold text-gray-600 text-xl">
                   Article <span className="blue_gradient">Summary</span>
                 </h2>
-                <div className="copy_btn ml-4" onClick={() => handleCopySummary(article.summary)}>
+                <div
+                  className="copy_btn ml-4"
+                  onClick={() => handleCopySummary(article.summary)}
+                >
                   <img
                     src={copiedSummary === article.summary ? tick : copy}
                     alt="copy_icon"
@@ -153,7 +163,9 @@ const Demo = () => {
                 </div>
               </div>
               <div className="summary_box">
-                <p className="font-inter font-medium text-sm text-gray-700">{article.summary}</p>
+                <p className="font-inter font-medium text-sm text-gray-700">
+                  {article.summary}
+                </p>
               </div>
             </div>
           )
