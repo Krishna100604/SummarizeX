@@ -4,7 +4,7 @@ import React, { createContext, useState, useEffect } from 'react';
 const CreditContext = createContext();
 
 export const CreditProvider = ({ children }) => {
-  const [credits, setCredits] = useState(5);
+  const [credits, setCredits] = useState(15);
 
   useEffect(() => {
     const storedCredits = JSON.parse(localStorage.getItem('credits'));
