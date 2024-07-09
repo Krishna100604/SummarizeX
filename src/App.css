@@ -21,7 +21,7 @@
 }
 
 .main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  /* background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%); */
   position: absolute;
   content: "";
   z-index: 2;
@@ -43,7 +43,7 @@
 }
 
 /* Gradient overlay */
-.gradient {
+/* .gradient {
   height: fit-content;
   z-index: 3;
   width: 100%;
@@ -66,7 +66,7 @@
   filter: blur(100px) saturate(150%);
   top: 80px;
   opacity: 0.15;
-}
+} */
 
 /* App container */
 .app {
@@ -85,7 +85,7 @@
 
 /* Orange gradient text */
 .orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  /* @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent; */
 }
 
 /* Description text */
@@ -105,26 +105,27 @@
 
 /* Link card */
 .link_card {
-  @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer;
+  /* @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer; */
 }
 
 /* Copy button */
 .copy_btn {
-  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+  /* @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer; */
 }
 
 /* Blue gradient text */
 .blue_gradient {
-  @apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  /* @apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent; */
 }
 
 /* Summary box */
 .summary_box {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+  /* @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4; */
 }
 
 /* About and Contact section styles */
-.about-section, .contact-section {
+.about-section,
+.contact-section {
   @apply p-8 bg-white bg-opacity-70 rounded-lg shadow-md mt-16 mx-auto text-center;
 }
 
@@ -166,7 +167,8 @@
     @apply p-3;
   }
 
-  .about-section, .contact-section {
+  .about-section,
+  .contact-section {
     @apply p-6;
   }
 }
@@ -208,7 +210,8 @@
     @apply p-2;
   }
 
-  .about-section, .contact-section {
+  .about-section,
+  .contact-section {
     @apply p-4;
   }
 }
@@ -250,7 +253,8 @@
     @apply p-1.5;
   }
 
-  .about-section, .contact-section {
+  .about-section,
+  .contact-section {
     @apply p-3;
   }
 }
