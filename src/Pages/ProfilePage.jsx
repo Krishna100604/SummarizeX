@@ -8,7 +8,9 @@ import CreditContext from '../contexts/CreditContext';
 const Profile = () => {
   const { credits } = useContext(CreditContext);
   const { user } = useUser();
-  const fullName = user ? `${user.firstName} ${user.lastName}` : 'User';
+  const firstName = user ? user.firstName : '';
+  const lastName = user ? user.lastName || '' : '';
+  const fullName = `${firstName} ${lastName}`.trim() || 'User';
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 via-pink-400 to-red-500 p-4">
