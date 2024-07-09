@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaInfoCircle, FaEnvelope, FaHome, FaCog, FaUsers, FaShieldAlt, FaReact } from 'react-icons/fa';
-import { SiTailwindcss ,SiRapid} from 'react-icons/si';
-
+import { SiTailwindcss, SiRapid } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -121,6 +120,20 @@ const Home = () => {
           </motion.div>
         </div>
 
+        {/* Payment Section */}
+        <motion.div 
+          className="payment-section bg-gradient-to-r from-violet-400 via-pink-400 to-red-500 py-8 px-10 rounded-lg shadow-md text-center text-white mb-10"
+          whileHover={{ scale: 1.05 }}
+        >
+          <h2 className="text-2xl font-extrabold mb-4">Upgrade Your Plan</h2>
+          <p className="text-lg mb-4">Get more credits and access advanced features by upgrading your plan.</p>
+          <Link
+            to="/payment"
+            className="custom-button bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
+          >
+            Upgrade Now
+          </Link>
+        </motion.div>
         {/* Technologies Used */}
         <div className="flex items-center justify-center space-x-4 mb-8">
           <span className="text-gray-500 text-sm">Built with:</span>
@@ -128,6 +141,7 @@ const Home = () => {
           <SiTailwindcss size={24} className="text-indigo-500" title="Tailwind CSS" />
           <SiRapid size={24} className="text-blue-600" title="RapidAPI" />
         </div>
+
       </div>
     </header>
   );

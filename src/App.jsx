@@ -1,4 +1,3 @@
-// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './Pages/About';
@@ -6,6 +5,8 @@ import Contact from './Pages/Contact';
 import Explore from './components/Explore';
 import Home from './Pages/Home';
 import Navbar from './Navbar';
+import Profile from './Pages/ProfilePage';
+import Payment from './Pages/PaymentPage';
 import { ThemeProvider } from './ThemeProvider';
 import './App.css';
 
@@ -26,6 +27,8 @@ const App = () => {
                 <Route path='/explore' element={<Explore />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/payment' element={<Payment />} />
               </Routes>
             </div>
           </main>

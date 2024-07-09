@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaInfoCircle, FaEnvelope, FaHome, FaGithub } from 'react-icons/fa'; // Import FaGithub for GitHub icon
+import { FaInfoCircle, FaEnvelope, FaHome, FaGithub, FaUserCircle } from 'react-icons/fa'; // Import FaUserCircle for Profile icon
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch'; // Import Switch component
 import { useTheme } from './ThemeProvider';
@@ -58,6 +58,15 @@ const Navbar = () => {
           >
             <Link to="/contact" className={`text-white ${darkMode ? 'text-gray-300' : ''}`}>
               <FaEnvelope size={29} />
+            </Link>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="cursor-pointer"
+          >
+            <Link to="/profile" className={`text-white ${darkMode ? 'text-gray-300' : ''}`}>
+              <FaUserCircle size={29} />
             </Link>
           </motion.div>
         </div>
