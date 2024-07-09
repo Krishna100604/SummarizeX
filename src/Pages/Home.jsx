@@ -8,7 +8,8 @@ import {
   FaShieldAlt,
   FaReact,
 } from "react-icons/fa";
-import { SiTailwindcss, SiRapid } from "react-icons/si";
+
+import { SiTailwindcss, SiRapid ,SiClerk} from "react-icons/si";
 import { Link, useNavigate } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 
@@ -183,6 +184,7 @@ const Home = () => {
             title="Tailwind CSS"
           />
           <SiRapid size={24} className="text-blue-600" title="RapidAPI" />
+          <SiClerk size={24} className="text-black-600" title="Clerk"/>
         </div>
       </div>
     </header>
