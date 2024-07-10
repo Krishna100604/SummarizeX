@@ -1,5 +1,4 @@
 import React from "react";
-
 import { motion } from "framer-motion";
 import {
   FaCog,
@@ -29,25 +28,25 @@ const Home = () => {
     fontFamily: ' "Pacifico", cursive',
   };
 
-  const { redirectToSignIn, user } = useClerk(); // Destructure redirectToSignIn and user from useClerk
-  const navigate = useNavigate(); // Initialize useNavigate
+  const { redirectToSignIn, user } = useClerk();
+  const navigate = useNavigate();
 
   const handleGetStarted = () => {
     if (user) {
-      navigate("/explore"); // Redirect to the desired page if the user is already logged in
+      navigate("/explore");
     } else {
       redirectToSignIn({
-        afterSignInUrl: "/explore", // Set the URL to redirect to after signing in
+        afterSignInUrl: "/explore",
       });
     }
   };
 
   const handleUpgradeNow = () => {
     if (user) {
-      navigate("/payment"); // Redirect to the payment page if the user is already logged in
+      navigate("/payment");
     } else {
       redirectToSignIn({
-        afterSignInUrl: "/payment", // Set the URL to redirect to after signing in
+        afterSignInUrl: "/payment",
       });
     }
   };
@@ -55,85 +54,144 @@ const Home = () => {
   return (
     <>
       <header className="p-4" style={styles}>
-        <span className="text-xs mb-5">
+        <motion.span
+          className="text-xs mb-5"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           AI powered summaries --------- simplified
-        </span>
-        {/* parent div */}
-        <div className="flex ">
+        </motion.span>
+
+        <div className="flex">
           <div className="md:w-1/3 sm:w-1/2">
-            <h1 className=" text-5xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4 ">
+            <motion.h1
+              className="text-5xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
               Explore content more{" "}
               <span className="text-blue-500 font-thin" style={cursive}>
-                {" "}
-                deeply{" "}
-              </span>
+                deeply
+              </span>{" "}
               and <span>effectively</span>
-            </h1>
-            <p className="text-lg sm:text-sm font-semibold mb-4 text-gray-400">
+            </motion.h1>
+            <motion.p
+              className="text-lg sm:text-sm font-semibold mb-4 text-gray-400"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
               An AI powered tool for summarizing articles. Simplifies content
               consumption for busy professionals
-            </p>
-            <button
+            </motion.p>
+            <motion.button
               onClick={handleGetStarted}
-              className="custom-button mt-5  bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
+              className="custom-button mt-5 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
             >
               Get Started
-            </button>
+            </motion.button>
           </div>
-
-          {/* 2nd div */}
 
           <div className="relative lg:w-1/3 sm:w-1/2 flex justify-center lg:justify-end">
-            {/* Background Circle */}
-            <div className="absolute bg-blue-200 w-96 h-96 rounded-t-full -top-10 -right-10 lg:-right-10"></div>
-
-            {/* Phone Image */}
-            <div className="relative z-10">
+            <motion.div
+              className="absolute bg-blue-200 w-96 h-96 rounded-t-full -top-10 -right-10 lg:-right-10"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8 }}
+            ></motion.div>
+            <motion.div
+              className="relative z-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
               <img className="h-87 md:h-96" src={phoneimg} alt="Phone" />
-            </div>
+            </motion.div>
           </div>
 
-          {/* 3rd div */}
           <div className="hidden sm:flex lg:w-1/3 ml-5 justify-end">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
               <p className="flex flex-col">
-                <span className="text-5xl sm:text-3xl md:text-6xl font-semibold">
+                <motion.span
+                  className="text-5xl sm:text-3xl md:text-6xl font-semibold"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
                   1K +
-                </span>
-                people registered
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
+                  people registered
+                </motion.span>
               </p>
 
-              <div className="bg-orange-200 p-4 rounded-md mt-5">
+              <motion.div
+                className="bg-orange-200 p-4 rounded-md mt-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.8 }}
+              >
                 <img className="h-10 rounded-full " src={review1} alt="" />
                 <h4 className="font-medium">Amazing Tool</h4>
                 <p className="text-xs"> - Zade Meadows</p>
-              </div>
-              <div className="bg-orange-200 p-4 rounded-md mt-5">
+              </motion.div>
+              <motion.div
+                className="bg-orange-200 p-4 rounded-md mt-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
                 <img className="h-8 rounded-full " src={review2} alt="" />
                 <h4 className="font-medium">Best for my Finals </h4>
                 <p className="text-xs"> - Adeline Reiley</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
-        {/* cards */}
-
-        <h1 className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4">
+        <motion.h1
+          className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
           Features
-        </h1>
+        </motion.h1>
 
         <Cards />
 
-        {/* Plans */}
-        <h1 className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4">
+        <motion.h1
+          className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.4 }}
+        >
           Our Plans
-        </h1>
+        </motion.h1>
 
         <div className="container mx-auto py-10 px-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* Pricing Card 1 */}
-            <div className=" rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs">
+            <motion.div
+              className="rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <div className="text-4xl mb-4 text-blue-500">
                 <FaUser />
               </div>
@@ -149,11 +207,15 @@ const Home = () => {
                   <FaCheck className="mr-2" /> Summarize up to 10 articles
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Pricing Card 2 */}
-
-            <div className=" rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs">
+            <motion.div
+              className="rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <div className="text-4xl mb-4 text-blue-500">
                 <FaStar />
               </div>
@@ -169,11 +231,15 @@ const Home = () => {
                   <FaCheck className="mr-2" /> Summarize up to 100 articles
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Pricing Card 3 */}
-
-            <div className=" rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs">
+            <motion.div
+              className="rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <div className="text-4xl mb-4 text-blue-500">
                 <FaStar />
               </div>
@@ -189,7 +255,7 @@ const Home = () => {
                   <FaCheck className="mr-2" /> Unlimited summaries
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </header>
