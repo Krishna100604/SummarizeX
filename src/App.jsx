@@ -10,6 +10,7 @@ import Payment from "./Pages/PaymentPage";
 import { ThemeProvider } from "./ThemeProvider";
 import { CreditProvider } from "./contexts/CreditContext";
 import "./App.css";
+import Footer from "./Footer";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
                 </Routes>
               </div>
             </main>
+            <Footer />
           </div>
         </Router>
       </CreditProvider>

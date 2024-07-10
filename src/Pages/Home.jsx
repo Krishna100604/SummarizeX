@@ -1,19 +1,34 @@
 import React from "react";
+
 import { motion } from "framer-motion";
 import {
   FaCog,
+  FaStar,
+  FaUser,
   FaEnvelope,
   FaHome,
   FaUsers,
   FaShieldAlt,
   FaReact,
+  FaCheck,
 } from "react-icons/fa";
-
+import phoneimg from "../assets/images/phone.png";
+import review1 from "../assets/images/zade.jpg";
+import review2 from "../assets/images/adyy.jpg";
 import { SiTailwindcss, SiRapid, SiClerk } from "react-icons/si";
 import { Link, useNavigate } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
+import Cards from "../components/Cards/Cards";
 
 const Home = () => {
+  const styles = {
+    fontFamily: '"Raleway", sans-serif',
+  };
+
+  const cursive = {
+    fontFamily: ' "Pacifico", cursive',
+  };
+
   const { redirectToSignIn, user } = useClerk(); // Destructure redirectToSignIn and user from useClerk
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -28,176 +43,144 @@ const Home = () => {
   };
 
   return (
-    // <header className="w-full flex flex-col items-center justify-center">
-    //   <div className="flex flex-col items-center justify-center text-center max-w-4xl px-4">
-    //     <motion.h1
-    //       className="head_text text-4xl md:text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl mb-6"
-    //       initial={{ opacity: 0, y: -50 }}
-    //       animate={{ opacity: 1, y: 0 }}
-    //       transition={{ duration: 1 }}
-    //     >
-    //     Explore content more deeply and effectively
-    //     </motion.h1>
-
-    //     <motion.div
-    //       className="cta-section bg-gradient-to-r from-purple-400 via-pink-400 to-red-500 py-8 px-10 rounded-lg shadow-md text-center text-white mb-10"
-    //       whileHover={{ scale: 1.05 }}
-    //     >
-    //       <h2 className="text-2xl font-extrabold mb-4">
-    //         Ready to Get Started?
-    //       </h2>
-    //       <p className="text-lg mb-4">
-    //         Explore how Summize can simplify your reading and research workflow
-    //         today.
-    //       </p>
-    //       <button
-    //         onClick={handleGetStarted} // Attach the click handler
-    //         className="custom-button bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
-    //       >
-    //         Get Started
-    //       </button>
-    //     </motion.div>
-
-    //     <motion.p
-    //       className="desc text-lg md:text-xl text-gray-600 mb-8"
-    //       initial={{ opacity: 0, y: 50 }}
-    //       animate={{ opacity: 1, y: 0 }}
-    //       transition={{ duration: 1, delay: 0.5 }}
-    //     >
-    //       Summize is your go-to tool for transforming lengthy content into
-    //       concise summaries using the power of AI.
-    //     </motion.p>
-
-    //     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-    //       <motion.div
-    //         className="feature-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaCog size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">Efficient Summarization</h3>
-    //         <p className="text-gray-600">
-    //           Quickly summarize articles, research papers, and more with just a
-    //           few clicks.
-    //         </p>
-    //       </motion.div>
-
-    //       <motion.div
-    //         className="feature-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaUsers size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">User-Friendly Interface</h3>
-    //         <p className="text-gray-600">
-    //           Intuitive design makes it easy for anyone to use, whether you're a
-    //           student or professional.
-    //         </p>
-    //       </motion.div>
-
-    //       <motion.div
-    //         className="feature-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaShieldAlt size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">AI-Powered Technology</h3>
-    //         <p className="text-gray-600">
-    //           Utilizes cutting-edge AI algorithms to deliver accurate and
-    //           informative summaries.
-    //         </p>
-    //       </motion.div>
-    //     </div>
-
-    //     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-    //       <motion.div
-    //         className="section-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaCog size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">Customization Options</h3>
-    //         <p className="text-gray-600">
-    //           Tailor your summaries with customizable settings and preferences
-    //           to suit your needs.
-    //         </p>
-    //       </motion.div>
-
-    //       <motion.div
-    //         className="section-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaEnvelope size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">
-    //           Integration with Productivity Tools
-    //         </h3>
-    //         <p className="text-gray-600">
-    //           Seamlessly integrate Summize with popular productivity tools for
-    //           enhanced workflow efficiency.
-    //         </p>
-    //       </motion.div>
-
-    //       <motion.div
-    //         className="section-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaHome size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">Real-time Collaboration</h3>
-    //         <p className="text-gray-600">
-    //           Collaborate in real-time with team members using Summize's
-    //           collaborative features.
-    //         </p>
-    //       </motion.div>
-
-    //       <motion.div
-    //         className="section-card p-6 rounded-lg shadow-md bg-white"
-    //         whileHover={{ scale: 1.05 }}
-    //       >
-    //         <FaShieldAlt size={36} className="text-purple-600 mb-4" />
-    //         <h3 className="text-xl font-bold mb-4">Enhanced Security</h3>
-    //         <p className="text-gray-600">
-    //           Secure your data with advanced encryption methods and
-    //           privacy-focused features.
-    //         </p>
-    //       </motion.div>
-    //     </div>
-
-    //     <motion.div
-    //       className="payment-section bg-gradient-to-r from-violet-400 via-pink-400 to-red-500 py-8 px-10 rounded-lg shadow-md text-center text-white mb-10"
-    //       whileHover={{ scale: 1.05 }}
-    //     >
-    //       <h2 className="text-2xl font-extrabold mb-4">Upgrade Your Plan</h2>
-    //       <p className="text-lg mb-4">
-    //         Get more credits and access advanced features by upgrading your
-    //         plan.
-    //       </p>
-    //       <Link
-    //         to="/payment"
-    //         className="custom-button bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
-    //       >
-    //         Upgrade Now
-    //       </Link>
-    //     </motion.div>
-
-    //     <div className="flex items-center justify-center space-x-4 mb-8">
-    //       <span className="text-gray-500 text-sm">Built with:</span>
-    //       <FaReact size={24} className="text-blue-600" title="React" />
-    //       <SiTailwindcss
-    //         size={24}
-    //         className="text-indigo-500"
-    //         title="Tailwind CSS"
-    //       />
-    //       <SiRapid size={24} className="text-blue-600" title="RapidAPI" />
-    //       <SiClerk size={24} className="text-black-600" title="Clerk"/>
-    //     </div>
-    //   </div>
-    // </header>
-
     <>
-      <header className="bg-blue-50">
-        <span className="text-sm">
+      <header className="p-4" style={styles}>
+        <span className="text-xs mb-5">
           AI powered summaries --------- simplified
         </span>
-        <div className="md:w-2/3 sm:w-full">
-          <h1 className="text-5xl sm:text-3xl md:text-6xl font-semibold">
-            Explore content more deeply and effectively
-          </h1>
+        {/* parent div */}
+        <div className="flex ">
+          <div className="md:w-1/3 sm:w-1/2">
+            <h1 className=" text-5xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4 ">
+              Explore content more{" "}
+              <span className="text-blue-500 font-thin" style={cursive}>
+                {" "}
+                deeply{" "}
+              </span>
+              and <span>effectively</span>
+            </h1>
+            <p className="text-lg sm:text-sm font-semibold mb-4 text-gray-400">
+              An AI powered tool for summarizing articles. Simplifies content
+              consumption for busy professionals
+            </p>
+            <button
+              onClick={handleGetStarted}
+              className="custom-button mt-5  bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
+            >
+              Get Started
+            </button>
+          </div>
+
+          {/* 2nd div */}
+
+          <div className="relative lg:w-1/3 sm:w-1/2 flex justify-center lg:justify-end">
+            {/* Background Circle */}
+            <div className="absolute bg-blue-200 w-96 h-96 rounded-t-full -top-10 -right-10 lg:-right-10"></div>
+
+            {/* Phone Image */}
+            <div className="relative z-10">
+              <img className="h-87 md:h-96" src={phoneimg} alt="Phone" />
+            </div>
+          </div>
+
+          {/* 3rd div */}
+          <div className="hidden sm:flex lg:w-1/3 ml-5 justify-end">
+            <div>
+              <p className="flex flex-col">
+                <span className="text-5xl sm:text-3xl md:text-6xl font-semibold">
+                  1K +
+                </span>
+                people registered
+              </p>
+
+              <div className="bg-orange-200 p-4 rounded-md mt-5">
+                <img className="h-10 rounded-full " src={review1} alt="" />
+                <h4 className="font-medium">Amazing Tool</h4>
+                <p className="text-xs"> - Zade Meadows</p>
+              </div>
+              <div className="bg-orange-200 p-4 rounded-md mt-5">
+                <img className="h-8 rounded-full " src={review2} alt="" />
+                <h4 className="font-medium">Best for my Finals </h4>
+                <p className="text-xs"> - Adeline Reiley</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* cards */}
+
+        <h1 className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4">
+          Features
+        </h1>
+
+        <Cards />
+
+        {/* Plans */}
+        <h1 className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4">
+          Our Plans
+        </h1>
+
+        <div className="container mx-auto py-10 px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Pricing Card 1 */}
+            <div className=" rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs">
+              <div className="text-4xl mb-4 text-blue-500">
+                <FaUser />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Basic</h3>
+              <p className="text-blue-300 mb-4">Perfect for individuals</p>
+              <div className="text-3xl font-bold mb-2">$19/month</div>
+              <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
+                Buy Now
+              </button>
+              <hr />
+              <div className="container mx-auto py-10 px-4 text-blue-400">
+                <p className="flex items-center justify-center">
+                  <FaCheck className="mr-2" /> Summarize up to 10 articles
+                </p>
+              </div>
+            </div>
+
+            {/* Pricing Card 2 */}
+
+            <div className=" rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs">
+              <div className="text-4xl mb-4 text-blue-500">
+                <FaStar />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Pro</h3>
+              <p className="text-blue-300 mb-4">Ideal for small teams</p>
+              <div className="text-3xl font-bold mb-2">$49/month</div>
+              <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
+                Buy Now
+              </button>
+              <hr />
+              <div className="container mx-auto py-10 px-4 text-blue-400">
+                <p className="flex items-center justify-center">
+                  <FaCheck className="mr-2" /> Summarize up to 100 articles
+                </p>
+              </div>
+            </div>
+
+            {/* Pricing Card 3 */}
+
+            <div className=" rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs">
+              <div className="text-4xl mb-4 text-blue-500">
+                <FaStar />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
+              <p className="text-blue-300 mb-4">For large organizations</p>
+              <div className="text-3xl font-bold mb-2">$99/month</div>
+              <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
+                Buy Now
+              </button>
+              <hr />
+              <div className="container mx-auto py-10 px-4 text-blue-400">
+                <p className="flex items-center justify-center">
+                  <FaCheck className="mr-2" /> Unlimited summaries
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
     </>
