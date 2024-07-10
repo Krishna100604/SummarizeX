@@ -1,73 +1,153 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
+import CreditContext from '../contexts/CreditContext';
 
 const Payment = () => {
+  const { updateCredits } = useContext(CreditContext);
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
+  const [cvv, setCvv] = useState('');
+
+  const plans = [
+    { id: 1, name: '1 Month Plan', credits: 10 },
+    { id: 2, name: '6 Months Plan', credits: 50 },
+    { id: 3, name: '1 Year Plan', credits: 100 },
+  ];
+
+  const handlePlanSelect = (plan) => {
+    setSelectedPlan(plan);
+  };
+
+  const handleCardNumberChange = (event) => {
+    setCardNumber(event.target.value);
+  };
+
+  const handleExpiryDateChange = (event) => {
+    setExpiryDate(event.target.value);
+  };
+
+  const handleCvvChange = (event) => {
+    setCvv(event.target.value);
+  };
+
+  const handlePayment = () => {
+    if (selectedPlan && cardNumber && expiryDate && cvv) {
+      // Assuming successful payment updates credits
+      updateCredits((prevCredits) => prevCredits + selectedPlan.credits);
+      alert(`Payment successful! ${selectedPlan.credits} credits added to your account.`);
+      setSelectedPlan(null); // Reset selected plan after successful payment
+      setCardNumber('');
+      setExpiryDate('');
+      setCvv('');
+    } else {
+      alert('Please fill in all card details and select a plan before proceeding with payment.');
+    }
+  };
+
   return (
-    <div className="w-full flex flex-col items-center justify-center">
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center text-center max-w-4xl px-4">
-        {/* Main Heading */}
-        <motion.h1 
-          className="head_text text-4xl md:text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl mb-6"
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4">
+      <div className="max-w-3xl w-full">
+        {/* Payment Header */}
+        <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          className="bg-white p-8 rounded-lg shadow-md mb-6"
         >
-          Payment
-        </motion.h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Payment Plans</h1>
+          <p className="text-lg text-gray-600">Choose a plan to purchase credits.</p>
+        </motion.div>
 
-        {/* Payment Section */}
-        <motion.div 
-          className="payment-section bg-gradient-to-r from-violet-400 via-pink-400 to-red-500 py-8 px-10 rounded-lg shadow-md text-center text-white mb-10"
-          whileHover={{ scale: 1.05 }}
+        {/* Plans Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="bg-white p-8 rounded-lg shadow-md mb-6"
         >
-          <h2 className="text-2xl font-extrabold mb-4">Upgrade Your Plan</h2>
-          <p className="text-lg mb-4">Get more credits and access advanced features by upgrading your plan.</p>
-          <form className="w-full max-w-lg">
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="creditCardNumber">
-                Credit Card Number
-              </label>
-              <input 
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                id="creditCardNumber" 
-                type="text" 
-                placeholder="1234 5678 9012 3456"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="expiryDate">
-                Expiry Date
-              </label>
-              <input 
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                id="expiryDate" 
-                type="text" 
-                placeholder="MM/YY"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cvv">
-                CVV
-              </label>
-              <input 
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                id="cvv" 
-                type="text" 
-                placeholder="123"
-              />
-            </div>
-            <button 
-              className="custom-button bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
-              type="submit"
+          {plans.map((plan) => (
+            <div
+              key={plan.id}
+              className={`flex items-center justify-between mb-4 p-4 cursor-pointer rounded-lg shadow-md ${
+                selectedPlan?.id === plan.id ? 'bg-blue-200' : 'bg-gray-100'
+              }`}
+              onClick={() => handlePlanSelect(plan)}
             >
-              Pay Now
-            </button>
-          </form>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">{plan.name}</h2>
+                <p className="text-lg text-gray-600">Get {plan.credits} credits</p>
+              </div>
+              <div className="text-lg text-gray-600 font-bold">{plan.credits} Credits</div>
+            </div>
+          ))}
+
+          <div className="mb-6">
+            <label htmlFor="cardNumber" className="block text-lg text-gray-700 mb-2">
+              Card Number
+            </label>
+            <input
+              type="text"
+              id="cardNumber"
+              value={cardNumber}
+              onChange={handleCardNumberChange}
+              className="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              placeholder="Enter your card number"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="expiryDate" className="block text-lg text-gray-700 mb-2">
+              Expiry Date
+            </label>
+            <input
+              type="text"
+              id="expiryDate"
+              value={expiryDate}
+              onChange={handleExpiryDateChange}
+              className="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              placeholder="MM/YYYY"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="cvv" className="block text-lg text-gray-700 mb-2">
+              CVV
+            </label>
+            <input
+              type="text"
+              id="cvv"
+              value={cvv}
+              onChange={handleCvvChange}
+              className="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+              placeholder="Enter CVV"
+            />
+          </div>
+          <button
+            onClick={handlePayment}
+            className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none ${
+              selectedPlan ? '' : 'opacity-50 cursor-not-allowed'
+            }`}
+            disabled={!selectedPlan}
+          >
+            Pay Now
+          </button>
+        </motion.div>
+
+        {/* Back to Profile Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="bg-white p-6 rounded-lg shadow-md"
+        >
+          <p className="text-lg text-gray-600">
+            <a href="/profile" className="text-blue-500 hover:underline">
+              Back to Profile
+            </a>
+          </p>
         </motion.div>
       </div>
     </div>
   );
-}
+};
 
 export default Payment;
