@@ -42,6 +42,16 @@ const Home = () => {
     }
   };
 
+  const handleUpgradeNow = () => {
+    if (user) {
+      navigate("/payment"); // Redirect to the payment page if the user is already logged in
+    } else {
+      redirectToSignIn({
+        afterSignInUrl: "/payment", // Set the URL to redirect to after signing in
+      });
+    }
+  };
+
   return (
     <>
       <header className="p-4" style={styles}>
