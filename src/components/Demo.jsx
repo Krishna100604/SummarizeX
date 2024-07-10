@@ -1,4 +1,3 @@
-// Demo.js
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import { copy, linkIcon, loader, tick } from '../assets';
 import { useLazyGetSummaryQuery } from '../services/article';
@@ -14,7 +13,7 @@ const Demo = () => {
   const [creditExceeded, setCreditExceeded] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
-  const { credits, decrementCredits } = useContext(CreditContext); // Use CreditContext
+  const { credits, updateCredits } = useContext(CreditContext); // Use CreditContext
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
   const summaryRef = useRef(null);
 
@@ -53,7 +52,7 @@ const Demo = () => {
 
         localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
 
-        decrementCredits(); // Deduct one credit
+        updateCredits(credits - 1); // Deduct one credit
         setShouldScroll(true);
       }
     } catch (error) {

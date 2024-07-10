@@ -8,9 +8,8 @@ import {
   FaShieldAlt,
   FaReact,
 } from "react-icons/fa";
-
-import { SiTailwindcss, SiRapid ,SiClerk} from "react-icons/si";
-import { Link, useNavigate } from "react-router-dom";
+import { SiTailwindcss, SiRapid, SiClerk } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 
 const Home = () => {
@@ -23,6 +22,16 @@ const Home = () => {
     } else {
       redirectToSignIn({
         afterSignInUrl: "/explore", // Set the URL to redirect to after signing in
+      });
+    }
+  };
+
+  const handleUpgradeNow = () => {
+    if (user) {
+      navigate("/payment"); // Redirect to the payment page if the user is already logged in
+    } else {
+      redirectToSignIn({
+        afterSignInUrl: "/payment", // Set the URL to redirect to after signing in
       });
     }
   };
@@ -167,24 +176,20 @@ const Home = () => {
             Get more credits and access advanced features by upgrading your
             plan.
           </p>
-          <Link
-            to="/payment"
+          <button
+            onClick={handleUpgradeNow} // Attach the click handler
             className="custom-button bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
           >
             Upgrade Now
-          </Link>
+          </button>
         </motion.div>
 
         <div className="flex items-center justify-center space-x-4 mb-8">
           <span className="text-gray-500 text-sm">Built with:</span>
           <FaReact size={24} className="text-blue-600" title="React" />
-          <SiTailwindcss
-            size={24}
-            className="text-indigo-500"
-            title="Tailwind CSS"
-          />
+          <SiTailwindcss size={24} className="text-indigo-500" title="Tailwind CSS" />
           <SiRapid size={24} className="text-blue-600" title="RapidAPI" />
-          <SiClerk size={24} className="text-black-600" title="Clerk"/>
+          <SiClerk size={24} className="text-black-600" title="Clerk" />
         </div>
       </div>
     </header>
