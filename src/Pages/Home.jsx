@@ -198,9 +198,11 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-2">Basic</h3>
               <p className="text-blue-300 mb-4">Perfect for individuals</p>
               <div className="text-3xl font-bold mb-2">$19/month</div>
+              <Link to="/payment">
               <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
                 Buy Now
               </button>
+              </Link>
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
@@ -222,9 +224,11 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-2">Pro</h3>
               <p className="text-blue-300 mb-4">Ideal for small teams</p>
               <div className="text-3xl font-bold mb-2">$49/month</div>
+              <Link to="/payment">
               <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
                 Buy Now
               </button>
+              </Link>
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
@@ -246,9 +250,11 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-2">Enterprise</h3>
               <p className="text-blue-300 mb-4">For large organizations</p>
               <div className="text-3xl font-bold mb-2">$99/month</div>
+              <Link to="/payment">
               <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
                 Buy Now
               </button>
+              </Link>
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useClerk } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,12 @@ import PlansComponent from "./PlansCompenent";
 const PaymentPage = () => {
   const { redirectToSignIn, user } = useClerk();
   const navigate = useNavigate();
+  const mainRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the main part of the page when component mounts
+    mainRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   const handlePayment = () => {
     // Handle payment logic here
@@ -35,7 +41,7 @@ const PaymentPage = () => {
 
         <PlansComponent />
 
-        <div className="container mx-auto py-10 px-4">
+        <div ref={mainRef} className="container mx-auto py-10 px-4">
           <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4">Enter Card Details</h2>
             <form className="space-y-4">
