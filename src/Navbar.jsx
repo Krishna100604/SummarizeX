@@ -34,13 +34,15 @@ const Navbar = () => {
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/" className="flex items-center">
             {/* <img src={logo} alt="logo" className="h-8 w-8 mr-2" /> */}
-            <span className="font-black text-2xl font-satoshi text-blue-500">SummarizeX</span>
+            <span className="font-black text-2xl font-satoshi text-blue-500">
+              SummarizeX
+            </span>
           </Link>
         </div>
         <div className="block lg:hidden">
           <button
             onClick={toggleMenu}
-            className="flex items-center px-3 py-2 border rounded text-orange-800 border-white hover:text-gray-400 hover:border-gray-400"
+            className="flex items-center px-3 py-2 border rounded text-blue-900 border-white hover:text-gray-400 hover:border-gray-400"
           >
             <svg
               className="fill-current h-3 w-3"

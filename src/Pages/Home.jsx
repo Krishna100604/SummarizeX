@@ -1,20 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaCog,
-  FaStar,
-  FaUser,
-  FaEnvelope,
-  FaHome,
-  FaUsers,
-  FaShieldAlt,
-  FaReact,
-  FaCheck,
-} from "react-icons/fa";
-import phoneimg from "../assets/images/phone.png";
+import { FaUser, FaStar, FaCheck } from "react-icons/fa";
+import phoneimg from "../assets/images/home-ai.png";
 import review1 from "../assets/images/zade.jpg";
 import review2 from "../assets/images/adyy.jpg";
-import { SiTailwindcss, SiRapid, SiClerk } from "react-icons/si";
 import { Link, useNavigate } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 import Cards from "../components/Cards/Cards";
@@ -25,7 +14,7 @@ const Home = () => {
   };
 
   const cursive = {
-    fontFamily: ' "Pacifico", cursive',
+    fontFamily: '"Pacifico", cursive',
   };
 
   const { redirectToSignIn, user } = useClerk();
@@ -53,7 +42,10 @@ const Home = () => {
 
   return (
     <>
-      <header className="p-4" style={styles}>
+      <header
+        className="p-4 min-h-screen items-center justify-center"
+        style={styles}
+      >
         <motion.span
           className="text-xs mb-5"
           initial={{ opacity: 0, y: -20 }}
@@ -63,8 +55,8 @@ const Home = () => {
           AI powered summaries --------- simplified
         </motion.span>
 
-        <div className="flex">
-          <div className="md:w-1/3 sm:w-1/2">
+        <div className="flex ">
+          <div className="md:w-1/2 sm:w-full mb-6 ">
             <motion.h1
               className="text-5xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4"
               initial={{ opacity: 0, y: -20 }}
@@ -98,24 +90,18 @@ const Home = () => {
             </motion.button>
           </div>
 
-          <div className="relative lg:w-1/3 sm:w-1/2 flex justify-center lg:justify-end">
-            <motion.div
-              className="absolute bg-blue-200 w-96 h-96 rounded-t-full -top-10 -right-10 lg:-right-10"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.8 }}
-            ></motion.div>
+          <div className="w-1/2  hidden md:flex">
             <motion.div
               className="relative z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              <img className="h-87 md:h-96" src={phoneimg} alt="Phone" />
+              <img className="" src={phoneimg} alt="Phone" />
             </motion.div>
           </div>
-
-          <div className="hidden sm:flex lg:w-1/3 ml-5 justify-end">
+          {/* 
+          <div className="hidden md:flex lg:w-1/3 ml-5 md:ml-0 ">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -160,11 +146,11 @@ const Home = () => {
                 <p className="text-xs"> - Adeline Reiley</p>
               </motion.div>
             </motion.div>
-          </div>
+          </div> */}
         </div>
 
         <motion.h1
-          className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-5xl mt-5 text-blue-500 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
@@ -175,7 +161,7 @@ const Home = () => {
         <Cards />
 
         <motion.h1
-          className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-5xl mt-5 text-blue-500 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
@@ -196,17 +182,22 @@ const Home = () => {
                 <FaUser />
               </div>
               <h3 className="text-xl font-bold mb-2">Basic</h3>
-              <p className="text-blue-300 mb-4">Perfect for individuals</p>
-              <div className="text-3xl font-bold mb-2">$19/month</div>
+              <p className="text-blue-300 mb-4 font-bold">
+                Perfect for individuals
+              </p>
+              <div className="text-xl font-bold mb-2">
+                {" "}
+                &#x20B9;100 / 10 credits
+              </div>
               <Link to="/payment">
-              <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
-                Buy Now
-              </button>
+                <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
+                  Buy Now
+                </button>
               </Link>
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
-                  <FaCheck className="mr-2" /> Summarize up to 10 articles
+                  <FaCheck className="mr-2" /> Summarize upto 10 articles
                 </p>
               </div>
             </motion.div>
@@ -222,17 +213,21 @@ const Home = () => {
                 <FaStar />
               </div>
               <h3 className="text-xl font-bold mb-2">Pro</h3>
-              <p className="text-blue-300 mb-4">Ideal for small teams</p>
-              <div className="text-3xl font-bold mb-2">$49/month</div>
+              <p className="text-blue-300 mb-4 font-bold">
+                Ideal for small teams
+              </p>
+              <div className="text-xl font-bold mb-2">
+                &#x20B9;500 / 100 credits
+              </div>
               <Link to="/payment">
-              <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
-                Buy Now
-              </button>
+                <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
+                  Buy Now
+                </button>
               </Link>
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
-                  <FaCheck className="mr-2" /> Summarize up to 100 articles
+                  <FaCheck className="mr-2" /> Summarize upto 100 articles
                 </p>
               </div>
             </motion.div>
@@ -248,17 +243,22 @@ const Home = () => {
                 <FaStar />
               </div>
               <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-              <p className="text-blue-300 mb-4">For large organizations</p>
-              <div className="text-3xl font-bold mb-2">$99/month</div>
+              <p className="text-blue-300 mb-4 font-bold">
+                For large organizations
+              </p>
+              <div className="text-xl font-bold mb-2">
+                {" "}
+                &#x20B9;1200 / 500 credits
+              </div>
               <Link to="/payment">
-              <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
-                Buy Now
-              </button>
+                <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
+                  Buy Now
+                </button>
               </Link>
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
-                  <FaCheck className="mr-2" /> Unlimited summaries
+                  <FaCheck className="mr-2" /> Summarize upto 500 articles
                 </p>
               </div>
             </motion.div>
