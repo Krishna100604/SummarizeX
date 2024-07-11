@@ -29,12 +29,12 @@ const Navbar = () => {
   };
   console.log("User:", user);
   return (
-    <nav className="p-2 ">
+    <nav className="p-2 bg-[#004D61]">
       <div className="container mx-auto flex items-center justify-between flex-wrap">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <div className="flex items-center flex-shrink-0 mr-6">
           <Link to="/" className="flex items-center">
             {/* <img src={logo} alt="logo" className="h-8 w-8 mr-2" /> */}
-            <span className="font-black text-2xl font-satoshi text-blue-500">
+            <span className="font-black text-2xl font-satoshi  text-white">
               SummarizeX
             </span>
           </Link>
@@ -63,37 +63,37 @@ const Navbar = () => {
           <div className="text-base lg:flex-grow lg:flex lg:justify-center">
             <Link
               to="/"
-              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+              className="block lg:inline-block lg:mt-0 font-semibold  text-white hover:text-gray-300 mr-4"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300 mr-4"
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+              className="block lg:inline-block lg:mt-0 font-semibold text-white  hover:text-gray-300 mr-4"
             >
               Contact
             </Link>
             <Link
               to="/profile"
-              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300 mr-4"
             >
               Profile
             </Link>
             <Link
               to="/payment"
-              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300 mr-4"
             >
               Payment
             </Link>
             <a
               href="https://github.com/Krishna100604/AI-Summarizer"
-              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300mr-4"
               target="_blank"
               rel="noopener noreferrer"
             >

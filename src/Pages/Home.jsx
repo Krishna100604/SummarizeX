@@ -44,7 +44,7 @@ const Home = () => {
     <>
       <header className="p-4 min-h-screen " style={styles}>
         <motion.span
-          className="text-sm text-cyan-500 "
+          className="text-sm text-[#ffb39f] font-semibold"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -61,7 +61,7 @@ const Home = () => {
               transition={{ duration: 1 }}
             >
               Explore content more{" "}
-              <span className="text-blue-500 font-thin" style={cursive}>
+              <span className="text-[#5BD1D7] font-thin" style={cursive}>
                 deeply
               </span>{" "}
               and <span>effectively</span>
@@ -100,7 +100,7 @@ const Home = () => {
         </div>
 
         <motion.h1
-          className="text-5xl mt-5 text-blue-500 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-5xl mt-5 text-[#004D61] text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
@@ -113,7 +113,7 @@ const Home = () => {
         {/* payment */}
 
         <motion.h1
-          className="text-5xl mt-5 text-blue-500 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-5xl mt-5 text-[#004D61] text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
@@ -134,7 +134,7 @@ const Home = () => {
                 <FaUser />
               </div>
               <h3 className="text-xl font-bold mb-2">Basic</h3>
-              <p className="text-blue-300 mb-4 font-bold">
+              <p className="text-[#ffb39f] mb-4 font-bold">
                 Perfect for individuals
               </p>
               <div className="text-xl font-bold mb-2">
@@ -165,7 +165,7 @@ const Home = () => {
                 <FaStar />
               </div>
               <h3 className="text-xl font-bold mb-2">Pro</h3>
-              <p className="text-blue-300 mb-4 font-bold">
+              <p className="text-[#ffb39f] mb-4 font-bold">
                 Ideal for small teams
               </p>
               <div className="text-xl font-bold mb-2">
@@ -195,7 +195,7 @@ const Home = () => {
                 <FaStar />
               </div>
               <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-              <p className="text-blue-300 mb-4 font-bold">
+              <p className="text-[#ffb39f] mb-4 font-bold">
                 For large organizations
               </p>
               <div className="text-xl font-bold mb-2">
