@@ -110,7 +110,7 @@ const Navbar = () => {
           <div className="flex items-center ">
             <button
               onClick={toggleDarkMode}
-              className="flex items-center justify-center bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-200"
+              className="flex items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
             >
               {isDarkMode ? <FiMoon /> : <FiSun />}
             </button>

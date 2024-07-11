@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaUser, FaStar, FaCheck } from "react-icons/fa";
-import img from "../assets/images/home-ai.png";
+import img from "../assets/images/homepage.png";
 import review1 from "../assets/images/zade.jpg";
 import review2 from "../assets/images/adyy.jpg";
 import { Link, useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-      <header className="p-4 min-h-screen dark:bg-[#0f172a] " style={styles}>
+      <header className="p-10 min-h-screen dark:bg-[#0f172a] " style={styles}>
         <motion.span
           className="text-sm text-[#ffb39f]  font-semibold"
           initial={{ opacity: 0, y: -20 }}
