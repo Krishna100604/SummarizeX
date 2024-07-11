@@ -4,7 +4,7 @@ import Demo from "./Demo";
 
 const Explore = () => {
   return (
-    <div className="App relative z-10 p-10 flex flex-col items-center justify-center">
+    <div className="App relative flex flex-col items-center justify-center">
       <Hero />
       <Demo />
     </div>

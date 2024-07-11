@@ -19,15 +19,22 @@ import Switch from "react-switch"; // Import Switch component
 import { useTheme } from "./ThemeProvider";
 import { logo } from "./assets";
 import { useState } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isLoaded, isSignedIn, user } = useUser(); // Get the user details
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  console.log("User:", user);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle("dark");
+  };
+
   return (
     <nav className="p-2 bg-[#004D61]">
       <div className="container mx-auto flex items-center justify-between flex-wrap">
@@ -101,6 +108,12 @@ const Navbar = () => {
             </a>
           </div>
           <div className="flex items-center ">
+            <button
+              onClick={toggleDarkMode}
+              className="flex items-center justify-center bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-200"
+            >
+              {isDarkMode ? <FiMoon /> : <FiSun />}
+            </button>
             <SignedOut>
               <SignInButton />
             </SignedOut>

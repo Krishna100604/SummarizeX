@@ -24,7 +24,7 @@ const App = () => {
               {/* <main className="flex-grow bg-gradient-to-r from-purple-400 via-pink-400 to-red-500"> */}
               {/* <div className="gradient absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-400 to-red-400 opacity-70 transform -skew-y-6"></div> */}
 
-              <div className="relative z-10 p-10 flex flex-col items-center justify-center">
+              <div className="relative flex flex-col items-center justify-center">
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/explore" element={<Explore />} />

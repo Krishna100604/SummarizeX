@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-      <header className="p-4 min-h-screen " style={styles}>
+      <header className="p-4 min-h-screen dark:bg-black " style={styles}>
         <motion.span
           className="text-sm text-[#ffb39f] font-semibold"
           initial={{ opacity: 0, y: -20 }}
