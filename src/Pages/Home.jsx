@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaUser, FaStar, FaCheck } from "react-icons/fa";
-import phoneimg from "../assets/images/home-ai.png";
+import img from "../assets/images/home-ai.png";
 import review1 from "../assets/images/zade.jpg";
 import review2 from "../assets/images/adyy.jpg";
 import { Link, useNavigate } from "react-router-dom";
@@ -42,12 +42,9 @@ const Home = () => {
 
   return (
     <>
-      <header
-        className="p-4 min-h-screen items-center justify-center"
-        style={styles}
-      >
+      <header className="p-4 min-h-screen " style={styles}>
         <motion.span
-          className="text-xs mb-5"
+          className="text-sm text-cyan-500 "
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -55,7 +52,7 @@ const Home = () => {
           AI powered summaries --------- simplified
         </motion.span>
 
-        <div className="flex ">
+        <div className="flex items-center justify-center">
           <div className="md:w-1/2 sm:w-full mb-6 ">
             <motion.h1
               className="text-5xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4"
@@ -97,56 +94,9 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              <img className="" src={phoneimg} alt="Phone" />
+              <img className="" src={img} alt="Phone" />
             </motion.div>
           </div>
-          {/* 
-          <div className="hidden md:flex lg:w-1/3 ml-5 md:ml-0 ">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-            >
-              <p className="flex flex-col">
-                <motion.span
-                  className="text-5xl sm:text-3xl md:text-6xl font-semibold"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
-                >
-                  1K +
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
-                >
-                  people registered
-                </motion.span>
-              </p>
-
-              <motion.div
-                className="bg-orange-200 p-4 rounded-md mt-5"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
-              >
-                <img className="h-10 rounded-full " src={review1} alt="" />
-                <h4 className="font-medium">Amazing Tool</h4>
-                <p className="text-xs"> - Zade Meadows</p>
-              </motion.div>
-              <motion.div
-                className="bg-orange-200 p-4 rounded-md mt-5"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1 }}
-              >
-                <img className="h-8 rounded-full " src={review2} alt="" />
-                <h4 className="font-medium">Best for my Finals </h4>
-                <p className="text-xs"> - Adeline Reiley</p>
-              </motion.div>
-            </motion.div>
-          </div> */}
         </div>
 
         <motion.h1

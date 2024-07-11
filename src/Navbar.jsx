@@ -79,6 +79,18 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            <Link
+              to="/profile"
+              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+            >
+              Profile
+            </Link>
+            <Link
+              to="/payment"
+              className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
+            >
+              Payment
+            </Link>
             <a
               href="https://github.com/Krishna100604/AI-Summarizer"
               className="block lg:inline-block lg:mt-0 font-semibold text-blue-500 hover:text-blue-900 mr-4"
