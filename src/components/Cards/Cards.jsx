@@ -53,15 +53,17 @@ const Cards = () => {
         {cardsData.map((card) => (
           <div
             key={card.id}
-            className="border rounded-lg p-6 bg-blue-50 flex flex-col items-center text-center"
+            className="border rounded-lg p-6 bg-blue-50  dark:bg-[#1e293b] flex flex-col items-center text-center"
           >
-            <div className="flex mx-auto w-20 h-20 bg-white rounded-full mb-4 items-center justify-center">
+            <div className="flex mx-auto w-20 h-20 bg-white dark:bg-blue-200 rounded-full mb-4 items-center justify-center">
               <div className="text-5xl text-blue-500">{card.icon}</div>
             </div>
-            <h2 className="text-xl font-bold mb-2 text-blue-800">
+            <h2 className="text-base md:text-xl font-bold mb-2 text-blue-800 dark:text-white ">
               {card.title}
             </h2>
-            <p className="text-gray-600">{card.text}</p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base ">
+              {card.text}
+            </p>
           </div>
         ))}
       </div>

@@ -42,9 +42,9 @@ const Home = () => {
 
   return (
     <>
-      <header className="p-4 min-h-screen dark:bg-black " style={styles}>
+      <header className="p-4 min-h-screen dark:bg-[#0f172a] " style={styles}>
         <motion.span
-          className="text-sm text-[#ffb39f] font-semibold"
+          className="text-sm text-[#ffb39f]  font-semibold"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -55,7 +55,7 @@ const Home = () => {
         <div className="flex items-center justify-center">
           <div className="md:w-1/2 sm:w-full mb-6 ">
             <motion.h1
-              className="text-5xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4"
+              className="text-4xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4 dark:text-white"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -67,7 +67,7 @@ const Home = () => {
               and <span>effectively</span>
             </motion.h1>
             <motion.p
-              className="text-lg sm:text-sm font-semibold mb-4 text-gray-400"
+              className="text-md sm:text-sm md:text-lg font-semibold mb-4 text-gray-400"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -100,7 +100,7 @@ const Home = () => {
         </div>
 
         <motion.h1
-          className="text-5xl mt-5 text-[#004D61] text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-4xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center sm:text-3xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
@@ -113,7 +113,7 @@ const Home = () => {
         {/* payment */}
 
         <motion.h1
-          className="text-5xl mt-5 text-[#004D61] text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-4xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center sm:text-3xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
@@ -124,7 +124,7 @@ const Home = () => {
         <div className="container mx-auto py-10 px-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.div
-              className="rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              className="rounded-lg  dark:bg-[#1e293b] p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -133,11 +133,11 @@ const Home = () => {
               <div className="text-4xl mb-4 text-blue-500">
                 <FaUser />
               </div>
-              <h3 className="text-xl font-bold mb-2">Basic</h3>
+              <h3 className="text-xl font-bold mb-2 dark:text-white ">Basic</h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
                 Perfect for individuals
               </p>
-              <div className="text-xl font-bold mb-2">
+              <div className="text-xl font-bold mb-2 dark:text-[#5BD1D7]">
                 {" "}
                 &#x20B9;100 / 10 credits
               </div>
@@ -155,7 +155,7 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-              className="rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              className="rounded-lg p-6  dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -164,11 +164,11 @@ const Home = () => {
               <div className="text-4xl mb-4 text-blue-500">
                 <FaStar />
               </div>
-              <h3 className="text-xl font-bold mb-2">Pro</h3>
+              <h3 className="text-xl font-bold mb-2  dark:text-white">Pro</h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
                 Ideal for small teams
               </p>
-              <div className="text-xl font-bold mb-2">
+              <div className="text-xl font-bold mb-2 dark:text-[#5BD1D7]">
                 &#x20B9;500 / 100 credits
               </div>
               <Link to="/payment">
@@ -185,7 +185,7 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-              className="rounded-lg p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              className="rounded-lg p-6  dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -194,11 +194,13 @@ const Home = () => {
               <div className="text-4xl mb-4 text-blue-500">
                 <FaStar />
               </div>
-              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
+              <h3 className="text-xl font-bold mb-2  dark:text-white">
+                Enterprise
+              </h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
                 For large organizations
               </p>
-              <div className="text-xl font-bold mb-2">
+              <div className="text-xl font-bold mb-2 dark:text-[#5BD1D7]">
                 {" "}
                 &#x20B9;1200 / 500 credits
               </div>
