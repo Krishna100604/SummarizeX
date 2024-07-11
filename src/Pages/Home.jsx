@@ -110,6 +110,8 @@ const Home = () => {
 
         <Cards />
 
+        {/* payment */}
+
         <motion.h1
           className="text-5xl mt-5 text-blue-500 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}

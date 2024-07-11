@@ -31,15 +31,13 @@ const PaymentPage = () => {
     <>
       <header className="p-4">
         <motion.h1
-          className="text-5xl mt-5 text-blue-600 text-center sm:text-4xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-3xl mt-5 text-blue-600 text-center sm:text-2xl md:text-5xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           Payment
         </motion.h1>
-
-        <PlansComponent />
 
         <div ref={mainRef} className="container mx-auto py-10 px-4">
           <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
@@ -112,6 +110,7 @@ const PaymentPage = () => {
             )}
           </div>
         </div>
+        <PlansComponent />
       </header>
     </>
   );
