@@ -227,6 +227,7 @@ const Home = () => {
 
         <Testimonials />
       </header>
+      <Footer/>
     </>
   );
 };

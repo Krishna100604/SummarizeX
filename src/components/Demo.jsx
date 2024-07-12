@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { copy, linkIcon, loader, tick } from '../assets';
 import { useLazyGetSummaryQuery } from '../services/article';
 import CreditContext from '../contexts/CreditContext';
+import { jsPDF } from 'jspdf';
+import { Document, Packer, Paragraph, TextRun } from 'docx';
+import { saveAs } from 'file-saver';
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: '', summary: '' });
@@ -72,6 +75,36 @@ const Demo = () => {
     setCopiedSummary(true);
     navigator.clipboard.writeText(summary);
     setTimeout(() => setCopiedSummary(false), 3000);
+  };
+
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    const splitText = doc.splitTextToSize(article.summary, 180);
+    doc.text(splitText, 10, 10);
+    doc.save('summary.pdf');
+  };
+
+  const downloadDOC = async () => {
+    try {
+      const doc = new Document({
+        sections: [
+          {
+            properties: {},
+            children: [
+              new Paragraph({
+                children: [new TextRun(article.summary)],
+              }),
+            ],
+          },
+        ],
+      });
+
+      const buffer = await Packer.toBuffer(doc);
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+      saveAs(blob, 'summary.docx');
+    } catch (error) {
+      console.error('Error creating DOC:', error);
+    }
   };
 
   return (
@@ -161,6 +194,20 @@ const Demo = () => {
               </div>
               <div className="summary_box">
                 <p className="font-inter font-medium text-sm text-gray-700">{article.summary}</p>
+              </div>
+              <div className="flex gap-4 mt-4">
+                <button
+                  onClick={downloadPDF}
+                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                >
+                  Download as PDF
+                </button>
+                <button
+                  onClick={downloadDOC}
+                  className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                >
+                  Download as DOC
+                </button>
               </div>
             </div>
           )

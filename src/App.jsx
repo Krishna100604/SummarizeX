@@ -37,7 +37,6 @@ const App = () => {
                 </Routes>
               </div>
             </main>
-            <Footer />
           </div>
         </Router>
       </CreditProvider>
