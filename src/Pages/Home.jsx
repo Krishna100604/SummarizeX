@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaUser, FaStar, FaCheck } from "react-icons/fa";
-import img from "../assets/images/homepage.png";
+import img from "../assets/images/home-ai.png";
 import review1 from "../assets/images/zade.jpg";
 import review2 from "../assets/images/adyy.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 import Cards from "../components/Cards/Cards";
+import Footer from "../Footer";
 
 const Home = () => {
   const styles = {
@@ -219,6 +220,7 @@ const Home = () => {
           </div>
         </div>
       </header>
+      <Footer/>
     </>
   );
 };

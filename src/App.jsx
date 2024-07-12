@@ -11,6 +11,7 @@ import { ThemeProvider } from "./ThemeProvider";
 import { CreditProvider } from "./contexts/CreditContext";
 import "./App.css";
 import Footer from "./Footer";
+import ProfileDetails from "./Pages/ProfileDetails";
 
 const App = () => {
   return (
@@ -32,10 +33,10 @@ const App = () => {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/payment" element={<Payment />} />
+                  <Route path="/profile-details" element={<ProfileDetails/>}/>
                 </Routes>
               </div>
             </main>
-            <Footer />
           </div>
         </Router>
       </CreditProvider>

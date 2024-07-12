@@ -1,9 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaUser, FaStar, FaCheck } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PlansComponent = () => {
+  const scrollToPayment = () => {
+    // Scroll to the payment section when a plan is clicked
+    document.getElementById("paymentSection").scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       <motion.h1
@@ -23,6 +28,7 @@ const PlansComponent = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            onClick={scrollToPayment} // Scroll to payment section on click
           >
             <div className="text-4xl mb-4 text-blue-500">
               <FaUser />
@@ -32,10 +38,9 @@ const PlansComponent = () => {
               Perfect for individuals
             </p>
             <div className="text-xl font-bold mb-2">
-              {" "}
-              &#x20B9;100 / 10 credits
+              ₹100 / 10 credits
             </div>
-            <Link to="/payment">
+            <Link to="/payment?credits=10"> {/* Pass credits as query parameter */}
               <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
                 Buy Now
               </button>
@@ -43,7 +48,7 @@ const PlansComponent = () => {
             <hr />
             <div className="container mx-auto py-10 px-4 text-blue-400">
               <p className="flex items-center justify-center">
-                <FaCheck className="mr-2" /> Summarize upto 10 articles
+                <FaCheck className="mr-2" /> Summarize up to 10 articles
               </p>
             </div>
           </motion.div>
@@ -54,6 +59,7 @@ const PlansComponent = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            onClick={scrollToPayment} // Scroll to payment section on click
           >
             <div className="text-4xl mb-4 text-blue-500">
               <FaStar />
@@ -63,9 +69,9 @@ const PlansComponent = () => {
               Ideal for small teams
             </p>
             <div className="text-xl font-bold mb-2">
-              &#x20B9;500 / 100 credits
+              ₹500 / 100 credits
             </div>
-            <Link to="/payment">
+            <Link to="/payment?credits=100"> {/* Pass credits as query parameter */}
               <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
                 Buy Now
               </button>
@@ -73,7 +79,7 @@ const PlansComponent = () => {
             <hr />
             <div className="container mx-auto py-10 px-4 text-blue-400">
               <p className="flex items-center justify-center">
-                <FaCheck className="mr-2" /> Summarize upto 100 articles
+                <FaCheck className="mr-2" /> Summarize up to 100 articles
               </p>
             </div>
           </motion.div>
@@ -84,6 +90,7 @@ const PlansComponent = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            onClick={scrollToPayment} // Scroll to payment section on click
           >
             <div className="text-4xl mb-4 text-blue-500">
               <FaStar />
@@ -93,10 +100,9 @@ const PlansComponent = () => {
               For large organizations
             </p>
             <div className="text-xl font-bold mb-2">
-              {" "}
-              &#x20B9;1200 / 500 credits
+              ₹1200 / 500 credits
             </div>
-            <Link to="/payment">
+            <Link to="/payment?credits=500"> {/* Pass credits as query parameter */}
               <button className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5">
                 Buy Now
               </button>
@@ -104,7 +110,7 @@ const PlansComponent = () => {
             <hr />
             <div className="container mx-auto py-10 px-4 text-blue-400">
               <p className="flex items-center justify-center">
-                <FaCheck className="mr-2" /> Summarize upto 500 articles
+                <FaCheck className="mr-2" /> Summarize up to 500 articles
               </p>
             </div>
           </motion.div>

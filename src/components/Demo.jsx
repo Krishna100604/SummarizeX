@@ -6,15 +6,15 @@ import CreditContext from '../contexts/CreditContext';
 const Demo = () => {
   const [article, setArticle] = useState({ url: '', summary: '' });
   const [allArticles, setAllArticles] = useState([]);
-  const [copied, setCopied] = useState("");
-  const [copiedSummary, setCopiedSummary] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [copiedSummary, setCopiedSummary] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [shouldScroll, setShouldScroll] = useState(false);
   const [creditExceeded, setCreditExceeded] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
-  const { credits, updateCredits } = useContext(CreditContext); // Use CreditContext
-  const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
+  const { credits, updateCredits } = useContext(CreditContext);
+  const [getSummary, { error }] = useLazyGetSummaryQuery();
   const summaryRef = useRef(null);
 
   useEffect(() => {
@@ -63,13 +63,13 @@ const Demo = () => {
   };
 
   const handleCopy = (copyUrl) => {
-    setCopied(copyUrl);
+    setCopied(true);
     navigator.clipboard.writeText(copyUrl);
     setTimeout(() => setCopied(false), 3000);
   };
 
   const handleCopySummary = (summary) => {
-    setCopiedSummary(summary);
+    setCopiedSummary(true);
     navigator.clipboard.writeText(summary);
     setTimeout(() => setCopiedSummary(false), 3000);
   };
@@ -118,7 +118,7 @@ const Demo = () => {
               >
                 <div className="copy_btn mr-2" onClick={() => handleCopy(item.url)}>
                   <img
-                    src={copied === item.url ? tick : copy}
+                    src={copied ? tick : copy}
                     alt="copy_icon"
                     className="w-6 h-6 object-contain"
                   />
@@ -153,7 +153,7 @@ const Demo = () => {
                 </h2>
                 <div className="copy_btn ml-4" onClick={() => handleCopySummary(article.summary)}>
                   <img
-                    src={copiedSummary === article.summary ? tick : copy}
+                    src={copiedSummary ? tick : copy}
                     alt="copy_icon"
                     className="w-6 h-6 object-contain"
                   />

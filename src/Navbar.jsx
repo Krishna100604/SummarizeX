@@ -36,7 +36,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="p-2 bg-[#004D61]">
+    <nav className="p-2 bg-sky-500">
       <div className="container mx-auto flex items-center justify-between flex-wrap">
         <div className="flex items-center flex-shrink-0 mr-6">
           <Link to="/" className="flex items-center">
@@ -110,7 +110,7 @@ const Navbar = () => {
           <div className="flex items-center ">
             <button
               onClick={toggleDarkMode}
-              className="flex items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
+              className="flex items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
             >
               {isDarkMode ? <FiMoon /> : <FiSun />}
             </button>
@@ -123,7 +123,7 @@ const Navbar = () => {
                 {isLoaded && isSignedIn && user && (
                   <>
                     <span className="mr-2">
-                      {user.firstName} {user.lastName}
+                      {user.firstName}
                     </span>
                     <UserButton />
                   </>

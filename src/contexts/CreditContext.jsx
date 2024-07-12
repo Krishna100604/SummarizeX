@@ -16,8 +16,12 @@ export const CreditProvider = ({ children }) => {
     setCredits(newCredits);
   };
 
+  const incrementCredits = (amount) => {
+    setCredits(prevCredits => prevCredits + amount);
+  };
+
   return (
-    <CreditContext.Provider value={{ credits, updateCredits }}>
+    <CreditContext.Provider value={{ credits, updateCredits, incrementCredits }}>
       {children}
     </CreditContext.Provider>
   );
