@@ -1,21 +1,11 @@
-import React, { useContext } from "react";
-import { motion } from "framer-motion";
-import { FaCoins, FaStar, FaHistory, FaChevronLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import CreditContext from "../contexts/CreditContext";
+import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
+import { FaCoins, FaStar, FaHistory, FaChevronLeft } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import CreditContext from '../contexts/CreditContext';
 
 const ProfileDetails = () => {
   const { credits } = useContext(CreditContext);
-
-  const styles = {
-    fontFamily: '"Raleway", sans-serif',
-  };
-
-  const handleAddCredits = () => {
-    // Navigate to the payment page
-    // Replace with actual navigation logic as per your router setup
-    window.location.href = "/payment";
-  };
 
   return (
     <div className="pt-6">
@@ -49,16 +39,17 @@ const ProfileDetails = () => {
           </div>
           {/* Add more details as needed */}
           <div className="flex justify-center mt-4">
-            <button
-              onClick={handleAddCredits}
-              className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 flex items-center"
-            >
-              <FaCoins className="mr-2" /> Add Credits
-            </button>
+            <Link to="/payment">
+              <button
+                className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 flex items-center"
+              >
+                <FaCoins className="mr-2" /> Add Credits
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex justify-center mt-6">
-          <Link to="/profile">
+          <Link to="/explore">
             <button className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 flex items-center">
               <FaChevronLeft className="mr-2" /> Go Back
             </button>
