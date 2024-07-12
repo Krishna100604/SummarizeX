@@ -33,10 +33,11 @@ const App = () => {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/payment" element={<Payment />} />
-                  <Route path="/profile-details" element={<ProfileDetails/>}/>
+                  <Route path="/profile-details" element={<ProfileDetails />} />
                 </Routes>
               </div>
             </main>
+            <Footer />
           </div>
         </Router>
       </CreditProvider>
