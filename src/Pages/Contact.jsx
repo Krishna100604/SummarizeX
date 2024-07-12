@@ -11,12 +11,14 @@ const Contact = () => {
   }, []);
 
   return (
-    <main className="w-full flex flex-col items-center justify-center pt-8">
+    <main className="w-full flex flex-col items-center justify-center pt-8 dark:bg-[#0f172a]">
       <section
         ref={contactSectionRef}
-        className="contact-section w-full max-w-3xl mt-16 mx-auto text-center p-8 bg-white bg-opacity-70 rounded-lg "
+        className="contact-section w-full max-w-3xl mt-16 mx-auto text-center p-8 rounded-lg"
       >
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
+        <h2 className="text-2xl md:text-5xl text-center font-bold text-sky-400 mb-5">
+          Contact Us
+        </h2>
         <p className="text-lg text-gray-600 mb-6">
           Have any questions or feedback? Feel free to reach out to us!
         </p>

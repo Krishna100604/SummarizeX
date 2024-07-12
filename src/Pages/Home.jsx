@@ -45,7 +45,7 @@ const Home = () => {
     <>
       <header className="p-10 min-h-screen dark:bg-[#0f172a] " style={styles}>
         <motion.span
-          className="text-sm text-[#ffb39f]  font-semibold"
+          className="text-sm dark:text-[#ffb39f]  font-semibold"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -95,7 +95,11 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              <img className="" src={img} alt="Phone" />
+              <img
+                className="dark:bg-white rounded-t-full"
+                src={img}
+                alt="Phone"
+              />
             </motion.div>
           </div>
         </div>
@@ -220,7 +224,6 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <Footer/>
     </>
   );
 };

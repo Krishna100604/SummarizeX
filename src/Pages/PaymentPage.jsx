@@ -50,7 +50,7 @@ const PaymentPage = () => {
     <>
       <header className="p-4">
         <motion.h1
-          className="text-3xl mt-5 text-blue-600 text-center sm:text-2xl md:text-5xl md:leading-tight font-semibold m-4"
+          className=" mt-5text-2xl md:text-5xl text-center font-bold text-sky-400 m-5"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -60,7 +60,10 @@ const PaymentPage = () => {
 
         <div ref={mainRef} className="container mx-auto py-10 px-4">
           <div className="">
-            <h2 id="paymentSection" className="text-2xl font-semibold mb-4">
+            <h2
+              id="paymentSection"
+              className="text-xl sm:text-2xl text-center  font-semibold mb-4"
+            >
               Select a Plan
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -82,7 +85,9 @@ const PaymentPage = () => {
                 <p className="text-blue-300 mb-4 font-bold">
                   Perfect for individuals
                 </p>
-                <div className="text-xl font-bold mb-2">&#x20B9;100 / 10 credits</div>
+                <div className="text-xl font-bold mb-2">
+                  &#x20B9;100 / 10 credits
+                </div>
                 <motion.button
                   className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
@@ -117,7 +122,9 @@ const PaymentPage = () => {
                 <p className="text-blue-300 mb-4 font-bold">
                   Ideal for small teams
                 </p>
-                <div className="text-xl font-bold mb-2">&#x20B9;500 / 100 credits</div>
+                <div className="text-xl font-bold mb-2">
+                  &#x20B9;500 / 100 credits
+                </div>
                 <motion.button
                   className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
@@ -152,7 +159,9 @@ const PaymentPage = () => {
                 <p className="text-blue-300 mb-4 font-bold">
                   For large organizations
                 </p>
-                <div className="text-xl font-bold mb-2">&#x20B9;1200 / 500 credits</div>
+                <div className="text-xl font-bold mb-2">
+                  &#x20B9;1200 / 500 credits
+                </div>
                 <motion.button
                   className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
