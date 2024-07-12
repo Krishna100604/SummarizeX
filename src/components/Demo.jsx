@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import { copy, linkIcon, loader, tick } from '../assets';
+import { copy, linkIcon, loader, tick } from '../assets'; // Adjust this based on your asset paths
 import { useLazyGetSummaryQuery } from '../services/article';
 import CreditContext from '../contexts/CreditContext';
 import { jsPDF } from 'jspdf';
 import { Document, Packer, Paragraph, TextRun } from 'docx';
 import { saveAs } from 'file-saver';
+import { BsFillPlayFill, BsFillStopFill } from 'react-icons/bs'; // Import React Icons
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: '', summary: '' });
@@ -15,10 +16,13 @@ const Demo = () => {
   const [shouldScroll, setShouldScroll] = useState(false);
   const [creditExceeded, setCreditExceeded] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('en'); // Default language
+  const [isSpeaking, setIsSpeaking] = useState(false); // Track if TTS is currently speaking
 
   const { credits, updateCredits } = useContext(CreditContext);
   const [getSummary, { error }] = useLazyGetSummaryQuery();
   const summaryRef = useRef(null);
+  const ttsUtterance = useRef(null); // Ref for the TTS utterance
 
   useEffect(() => {
     const articlesFromLocalStorage = JSON.parse(localStorage.getItem('articles'));
@@ -41,22 +45,25 @@ const Demo = () => {
         setCreditExceeded(true);
         return;
       }
-
+  
       setLoading(true);
-
-      const { data } = await getSummary({ articleUrl: article.url });
-
+  
+      const { data } = await getSummary({ articleUrl: article.url, language: selectedLanguage });
+  
       if (data?.summary) {
         const newArticle = { ...article, summary: data.summary };
         const updatedAllArticles = [newArticle, ...allArticles];
-
+  
         setArticle(newArticle);
         setAllArticles(updatedAllArticles);
-
+  
         localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
-
+  
         updateCredits(credits - 1); // Deduct one credit
         setShouldScroll(true);
+  
+        // Speak the summary immediately after fetching
+        speakSummary(newArticle.summary);
       }
     } catch (error) {
       console.error('Error fetching summary:', error);
@@ -107,6 +114,37 @@ const Demo = () => {
     }
   };
 
+  // Function to handle language change
+  const handleLanguageChange = async (language) => {
+    setSelectedLanguage(language);
+    // Refetch summary when language changes
+    try {
+      setLoading(true);
+      const { data } = await getSummary({ articleUrl: article.url, language });
+      if (data?.summary) {
+        setArticle({ ...article, summary: data.summary });
+      }
+    } catch (error) {
+      console.error('Error fetching summary:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Function to handle text-to-speech
+  const handleTextToSpeech = () => {
+    if (!isSpeaking) {
+      ttsUtterance.current = new SpeechSynthesisUtterance(article.summary);
+      ttsUtterance.current.lang = selectedLanguage;
+      ttsUtterance.current.onend = () => setIsSpeaking(false);
+      window.speechSynthesis.speak(ttsUtterance.current);
+      setIsSpeaking(true);
+    } else {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    }
+  };
+
   return (
     <section className='mt-16 w-full max-w-4xl mx-auto px-4'>
       <div className='flex flex-col w-full gap-4'>
@@ -131,6 +169,25 @@ const Demo = () => {
             ↵
           </button>
         </form>
+
+        {/* Language Selection */}
+        <div className="flex items-center gap-2 mt-4">
+          <label htmlFor="languageSelect" className="font-medium">Select Language:</label>
+          <select
+            id="languageSelect"
+            value={selectedLanguage}
+            onChange={(e) => handleLanguageChange(e.target.value)}
+            className="px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer"
+          >
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+            <option value="hi">Hindi</option>
+            <option value="gu">Gujarati</option>
+            <option value="mr">Marathi</option>
+            {/* Add more options as needed */}
+          </select>
+        </div>
 
         {/* Toggle Button */}
         <button
@@ -207,6 +264,20 @@ const Demo = () => {
                   className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
                 >
                   Download as DOC
+                </button>
+                <button
+                  onClick={handleTextToSpeech}
+                  className={`px-4 py-2 ${
+                    isSpeaking ? 'bg-red-500' : 'bg-blue-500'
+                  } text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 ${
+                    isSpeaking ? 'focus:ring-red-500' : 'focus:ring-blue-500'
+                  } focus:ring-opacity-50`}
+                >
+                  {isSpeaking ? (
+                    <BsFillStopFill className="w-6 h-6" /> // Stop icon
+                  ) : (
+                    <BsFillPlayFill className="w-6 h-6" /> // Play icon
+                  )}
                 </button>
               </div>
             </div>
