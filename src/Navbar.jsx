@@ -114,17 +114,21 @@ const Navbar = () => {
             >
               {isDarkMode ? <FiMoon /> : <FiSun />}
             </button>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
+            <div
+              className={`px-2 py-1 rounded-lg ${
+                !isSignedIn ? "bg-white" : ""
+              }`}
+            >
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+            </div>
 
             <SignedIn>
               <div className="flex items-center text-white">
                 {isLoaded && isSignedIn && user && (
                   <>
-                    <span className="mr-2">
-                      {user.firstName}
-                    </span>
+                    <span className="mr-2">{user.firstName}</span>
                     <UserButton />
                   </>
                 )}

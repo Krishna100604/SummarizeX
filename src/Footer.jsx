@@ -1,4 +1,5 @@
 import React from "react";
+import { FaReact } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -11,6 +12,10 @@ const Footer = () => {
             <p className="text-sm">
               An AI powered tool for summarizing articles. Simplifies content
               consumption for busy professionals.
+            </p>
+
+            <p className="mt-5">
+              Built using <FaReact size={25} />
             </p>
           </div>
           <div className="flex flex-col">

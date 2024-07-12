@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 import Cards from "../components/Cards/Cards";
 import Footer from "../Footer";
+import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   const styles = {
@@ -223,6 +224,8 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
+
+        <Testimonials />
       </header>
     </>
   );
