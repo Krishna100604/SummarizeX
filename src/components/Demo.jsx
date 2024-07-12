@@ -6,6 +6,9 @@ import { jsPDF } from 'jspdf';
 import { Document, Packer, Paragraph, TextRun } from 'docx';
 import { saveAs } from 'file-saver';
 import { BsFillPlayFill, BsFillStopFill } from 'react-icons/bs'; // Import React Icons
+import { FaFacebook ,FaWhatsapp,FaLinkedin} from 'react-icons/fa'; // Import Twitter and Facebook icons
+import { FaXTwitter } from "react-icons/fa6";
+
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: '', summary: '' });
@@ -145,6 +148,25 @@ const Demo = () => {
     }
   };
 
+  // Function to handle sharing on Twitter
+  const shareOnTwitter = () => {
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(article.summary)}&url=${encodeURIComponent(article.url)}`;
+    window.open(tweetUrl, '_blank');
+  };
+
+  // Function to handle sharing on Facebook
+  const shareOnFacebook = () => {
+    const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(article.url)}&quote=${encodeURIComponent(article.summary)}`;
+    window.open(fbUrl, '_blank');
+  };
+  const shareOnWhatsApp = () => {
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(article.summary)}%20${encodeURIComponent(article.url)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+  const shareOnLinkedIn = () => {
+    const linkedinUrl = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(article.url)}&title=${encodeURIComponent(article.summary)}`;
+    window.open(linkedinUrl, '_blank');
+  };
   return (
     <section className='mt-16 w-full max-w-4xl mx-auto px-4'>
       <div className='flex flex-col w-full gap-4'>
@@ -204,7 +226,7 @@ const Demo = () => {
               <div
                 key={`link-${index}`}
                 onClick={() => setArticle(item)}
-                className="flex items-center p-2 bg-white shadow-md rounded-lg cursor-pointer hover:bg-gray-100"
+                className="flex items-center p-2 bg-gray-200 shadow-md rounded-lg cursor-pointer hover:bg-gray-300"
               >
                 <div className="copy_btn mr-2" onClick={() => handleCopy(item.url)}>
                   <img
@@ -213,85 +235,112 @@ const Demo = () => {
                     className="w-6 h-6 object-contain"
                   />
                 </div>
-                <p className="flex-1 font-satoshi text-blue-700 font-medium text-sm truncate">
-                  {item.url}
-                </p>
+                <p className="text-sm truncate">{item.url}</p>
               </div>
             ))}
           </div>
         )}
-      </div>
 
-      {/* Results */}
-      <div className="my-10 max-w-full flex justify-center">
-        {isLoading ? (
-          <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
-        ) : error ? (
-          <p className="font-inter font-bold text-black text-center">
-            This isn't supposed to happen..
-            <br />
-            <span className='text-red-500'>
-              {error?.data?.error}
-            </span>
-          </p>
-        ) : (
-          article.summary && !creditExceeded && (
-            <div ref={summaryRef} className="flex flex-col gap-4 p-4 bg-white shadow-lg rounded-lg w-full">
-              <div className="flex justify-between items-start">
-                <h2 className="font-satoshi font-bold text-gray-600 text-xl">
-                  Article <span className="blue_gradient">Summary</span>
-                </h2>
-                <div className="copy_btn ml-4" onClick={() => handleCopySummary(article.summary)}>
-                  <img
-                    src={copiedSummary ? tick : copy}
-                    alt="copy_icon"
-                    className="w-6 h-6 object-contain"
-                  />
+        {/* Results */}
+        <div className="my-10 max-w-full flex justify-center">
+          {isLoading ? (
+            <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
+          ) : error ? (
+            <p className="font-inter font-bold text-black text-center">
+              This isn't supposed to happen..
+              <br />
+              <span className='text-red-500'>
+                {error?.data?.error}
+              </span>
+            </p>
+          ) : (
+            article.summary && !creditExceeded && (
+              <div ref={summaryRef} className="flex flex-col gap-4 p-4 bg-white shadow-lg rounded-lg w-full">
+                <div className="flex justify-between items-start">
+                  <h2 className="font-satoshi font-bold text-gray-600 text-xl">
+                    Article <span className="blue_gradient">Summary</span>
+                  </h2>
+                  <div className="copy_btn ml-4" onClick={() => handleCopySummary(article.summary)}>
+                    <img
+                      src={copiedSummary ? tick : copy}
+                      alt="copy_icon"
+                      className="w-6 h-6 object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="summary_box">
+                  <p className="font-inter font-medium text-sm text-gray-700">{article.summary}</p>
+                </div>
+                <div className="flex gap-4 mt-4">
+                  <button
+                    onClick={downloadPDF}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  >
+                    Download as PDF
+                  </button>
+                  <button
+                    onClick={downloadDOC}
+                    className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                  >
+                    Download as DOC
+                  </button>
+                  <button
+                    onClick={handleTextToSpeech}
+                    className={`px-4 py-2 ${
+                      isSpeaking ? 'bg-red-500' : 'bg-blue-500'
+                    } text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 ${
+                      isSpeaking ? 'focus:ring-red-500' : 'focus:ring-blue-500'
+                    } focus:ring-opacity-50`}
+                  >
+                    {isSpeaking ? (
+                      <BsFillStopFill className="w-6 h-6" /> // Stop icon
+                    ) : (
+                      <BsFillPlayFill className="w-6 h-6" /> // Play icon
+                    )}
+                  </button>
+                </div>
+                {/* Social Media Sharing Buttons */}
+                <div className="flex gap-4 mt-4">
+                  <button
+                    onClick={shareOnTwitter}
+                    className="px-4 py-2 bg-black
+                     text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  >
+                    <FaXTwitter className="w-6 h-6" /> Share on Twitter
+                  </button>
+                  <button
+                    onClick={shareOnFacebook}
+                    className="px-2 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  >
+                    <FaFacebook className="w-6 h-6" /> Share on Facebook
+                  </button>
+                  {/* Add more share buttons as needed */}
+                  <button
+                    onClick={shareOnWhatsApp}
+                    className='px-3 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50'
+                  >
+                    <FaWhatsapp className='w-5 h-5' /> Share on WhatsApp
+                  </button>
+                  <button
+                    onClick={shareOnLinkedIn}
+                    className='px-3 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'
+                  >
+                    <FaLinkedin className='w-5 h-5' /> Share on LinkedIn
+                  </button>
                 </div>
               </div>
-              <div className="summary_box">
-                <p className="font-inter font-medium text-sm text-gray-700">{article.summary}</p>
-              </div>
-              <div className="flex gap-4 mt-4">
-                <button
-                  onClick={downloadPDF}
-                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-                >
-                  Download as PDF
-                </button>
-                <button
-                  onClick={downloadDOC}
-                  className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
-                >
-                  Download as DOC
-                </button>
-                <button
-                  onClick={handleTextToSpeech}
-                  className={`px-4 py-2 ${
-                    isSpeaking ? 'bg-red-500' : 'bg-blue-500'
-                  } text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 ${
-                    isSpeaking ? 'focus:ring-red-500' : 'focus:ring-blue-500'
-                  } focus:ring-opacity-50`}
-                >
-                  {isSpeaking ? (
-                    <BsFillStopFill className="w-6 h-6" /> // Stop icon
-                  ) : (
-                    <BsFillPlayFill className="w-6 h-6" /> // Play icon
-                  )}
-                </button>
-              </div>
+            )
+          )}
+          {/* Credit Exceeded Warning */}
+          {creditExceeded && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4">
+              <strong className="font-bold">Warning!</strong>
+              <span className="block sm:inline">
+                {' '}You have exhausted your free credits. Please purchase credits to continue.
+              </span>
             </div>
-          )
-        )}
-        {/* Credit Exceeded Warning */}
-        {creditExceeded && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4">
-            <strong className="font-bold">Warning!</strong>
-            <span className="block sm:inline">
-              {' '}You have exhausted your free credits. Please purchase credits to continue.
-            </span>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );
