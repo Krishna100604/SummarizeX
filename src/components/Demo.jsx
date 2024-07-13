@@ -6,7 +6,12 @@ import { jsPDF } from "jspdf";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { saveAs } from "file-saver";
 import { BsFillPlayFill, BsFillStopFill } from "react-icons/bs"; // Import React Icons
-import { FaFacebook, FaWhatsapp, FaLinkedin } from "react-icons/fa"; // Import Twitter and Facebook icons
+import {
+  FaFacebook,
+  FaWhatsapp,
+  FaLinkedin,
+  FaChevronRight,
+} from "react-icons/fa"; // Import Twitter and Facebook icons
 import { FaXTwitter } from "react-icons/fa6";
 
 const Demo = () => {
@@ -204,9 +209,9 @@ const Demo = () => {
           />
           <button
             type="submit"
-            className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="ml-2 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
-            ↵
+            <FaChevronRight size={17} />
           </button>
         </form>
 

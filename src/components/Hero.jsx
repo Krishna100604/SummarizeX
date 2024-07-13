@@ -27,7 +27,7 @@ const Hero = () => {
           <span className="orange_gradient">SummarizeX</span>
         </motion.h1>
         <motion.h2
-          className="text-md md:text-lg font-semibold  text-center mt-4 px-4 md:px-0 dark:text-gray-400"
+          className="text-md md:text-lg font-semibold  text-center mt-4 px-4 md:px-0 text-gray-400"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}

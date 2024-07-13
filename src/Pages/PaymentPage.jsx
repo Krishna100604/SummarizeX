@@ -50,7 +50,7 @@ const PaymentPage = () => {
     <>
       <header className="p-4">
         <motion.h1
-          className="text-3xl mt-5 text-blue-600 text-center sm:text-2xl md:text-5xl md:leading-tight font-semibold m-4"
+          className="text-3xl mt-5  dark:text-[#5BD1D7] text-[#004D61]  text-center sm:text-2xl md:text-5xl md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -60,13 +60,16 @@ const PaymentPage = () => {
 
         <div ref={mainRef} className="container mx-auto py-10 px-4">
           <div className="">
-            <h2 id="paymentSection" className="text-2xl font-semibold mb-4">
+            <h2
+              id="paymentSection"
+              className="text-2xl font-semibold mb-4  dark:text-gray-400"
+            >
               Select a Plan
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               {/* Plan 1: Basic */}
               <motion.div
-                className={`rounded-lg p-6 border shadow-xl text-center flex-1 max-w-xs cursor-pointer ${
+                className={`rounded-lg dark:bg-[#1e293b] p-6 border shadow-xl text-center flex-1 max-w-xs cursor-pointer ${
                   selectedPlan === 10 ? "border-blue-500" : "border-blue-200"
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -78,11 +81,15 @@ const PaymentPage = () => {
                 <div className="text-4xl mb-4 text-blue-500">
                   <FaUser />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Basic</h3>
-                <p className="text-blue-300 mb-4 font-bold">
+                <h3 className="text-xl font-bold mb-2  dark:text-white">
+                  Basic
+                </h3>
+                <p className="mb-4 font-bold text-[#ffb39f]">
                   Perfect for individuals
                 </p>
-                <div className="text-xl font-bold mb-2">&#x20B9;100 / 10 credits</div>
+                <div className="text-xl font-bold mb-2 dark:text-[#5BD1D7]">
+                  &#x20B9;100 / 10 credits
+                </div>
                 <motion.button
                   className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
@@ -101,7 +108,7 @@ const PaymentPage = () => {
 
               {/* Plan 2: Pro */}
               <motion.div
-                className={`rounded-lg p-6 border shadow-xl text-center flex-1 max-w-xs cursor-pointer ${
+                className={`rounded-lg dark:bg-[#1e293b] p-6 border shadow-xl text-center flex-1 max-w-xs cursor-pointer ${
                   selectedPlan === 100 ? "border-blue-500" : "border-blue-200"
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -113,11 +120,13 @@ const PaymentPage = () => {
                 <div className="text-4xl mb-4 text-blue-500">
                   <FaStar />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Pro</h3>
-                <p className="text-blue-300 mb-4 font-bold">
+                <h3 className="text-xl font-bold mb-2  dark:text-white">Pro</h3>
+                <p className=" mb-4 font-bold text-[#ffb39f]">
                   Ideal for small teams
                 </p>
-                <div className="text-xl font-bold mb-2">&#x20B9;500 / 100 credits</div>
+                <div className="text-xl font-bold mb-2 dark:text-[#5BD1D7]">
+                  &#x20B9;500 / 100 credits
+                </div>
                 <motion.button
                   className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
@@ -136,7 +145,7 @@ const PaymentPage = () => {
 
               {/* Plan 3: Enterprise */}
               <motion.div
-                className={`rounded-lg p-6 border shadow-xl text-center flex-1 max-w-xs cursor-pointer ${
+                className={`rounded-lg dark:bg-[#1e293b] p-6 border shadow-xl text-center flex-1 max-w-xs cursor-pointer ${
                   selectedPlan === 500 ? "border-blue-500" : "border-blue-200"
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -148,11 +157,15 @@ const PaymentPage = () => {
                 <div className="text-4xl mb-4 text-blue-500">
                   <FaStar />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-                <p className="text-blue-300 mb-4 font-bold">
+                <h3 className="text-xl font-bold mb-2  dark:text-white">
+                  Enterprise
+                </h3>
+                <p className="mb-4 font-bold text-[#ffb39f]">
                   For large organizations
                 </p>
-                <div className="text-xl font-bold mb-2">&#x20B9;1200 / 500 credits</div>
+                <div className="text-xl font-bold mb-2 dark:text-[#5BD1D7]">
+                  &#x20B9;1200 / 500 credits
+                </div>
                 <motion.button
                   className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
@@ -172,38 +185,49 @@ const PaymentPage = () => {
           </div>
 
           <div id="cardDetails" className="mt-8">
-            <h2 className="text-2xl font-semibold mb-4">Enter Card Details</h2>
-            <form className="space-y-4">
+            <h2 className="text-2xl font-semibold mb-4  dark:text-gray-400">
+              Enter Card Details
+            </h2>
+            <form className="space-y-4 ">
               <div className="flex flex-col">
-                <label htmlFor="cardNumber" className="font-semibold">
+                <label
+                  htmlFor="cardNumber"
+                  className="font-semibold  dark:text-gray-300"
+                >
                   Card Number
                 </label>
                 <input
                   type="text"
                   id="cardNumber"
-                  className="border border-gray-300 p-2 rounded-md focus:outline-none"
+                  className="border  dark:bg-gray-500 border-gray-300 p-2 rounded-md focus:outline-none"
                   placeholder="1234 5678 9012 3456"
                 />
               </div>
               <div className="flex flex-col">
-                <label htmlFor="expiry" className="font-semibold">
+                <label
+                  htmlFor="expiry"
+                  className="font-semibold  dark:text-gray-300"
+                >
                   Expiry Date
                 </label>
                 <input
                   type="text"
                   id="expiry"
-                  className="border border-gray-300 p-2 rounded-md focus:outline-none"
+                  className="border  dark:bg-gray-500 border-gray-300 p-2 rounded-md focus:outline-none"
                   placeholder="MM/YY"
                 />
               </div>
-              <div className="flex flex-col">
-                <label htmlFor="cvv" className="font-semibold">
+              <div className="flex flex-col ">
+                <label
+                  htmlFor="cvv"
+                  className="font-semibold  dark:text-gray-300 "
+                >
                   CVV
                 </label>
                 <input
                   type="text"
                   id="cvv"
-                  className="border border-gray-300 p-2 rounded-md focus:outline-none"
+                  className="border dark:bg-gray-500  border-gray-300 p-2 rounded-md focus:outline-none"
                   placeholder="123"
                 />
               </div>
