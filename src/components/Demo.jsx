@@ -11,6 +11,8 @@ import {
   FaWhatsapp,
   FaLinkedin,
   FaChevronRight,
+  FaCopy,
+  FaCheck,
 } from "react-icons/fa"; // Import Twitter and Facebook icons
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -288,45 +290,46 @@ const Demo = () => {
             !creditExceeded && (
               <div
                 ref={summaryRef}
-                className="flex flex-col gap-4 p-4 bg-white shadow-lg rounded-lg w-full"
+                className="flex flex-col gap-4 p-4  shadow-lg rounded-lg w-full dark:bg-[#1e293b] bg-blue-100"
               >
                 <div className="flex justify-between items-start">
-                  <h2 className="font-satoshi font-bold text-gray-600 text-xl">
+                  <h2 className="font-satoshi font-bold text-lg sm:text-xl dark:text-[#5BD1D7]">
                     Article <span className="blue_gradient">Summary</span>
                   </h2>
+
                   <div
-                    className="copy_btn ml-4"
+                    className=" ml-4 text-blue-700 dark:text-gray-300"
                     onClick={() => handleCopySummary(article.summary)}
                   >
-                    <img
-                      src={copiedSummary ? tick : copy}
-                      alt="copy_icon"
-                      className="w-6 h-6 object-contain"
-                    />
+                    {copiedSummary ? (
+                      <FaCheck size={18} />
+                    ) : (
+                      <FaCopy size={18} />
+                    )}
                   </div>
                 </div>
-                <div className="summary_box">
-                  <p className="font-inter font-medium text-sm text-gray-700">
+                <div className="summary_box ">
+                  <p className="font-inter font-medium text-sm text-gray-700  dark:text-gray-200">
                     {article.summary}
                   </p>
                 </div>
                 <div className="flex gap-4 mt-4">
                   <button
                     onClick={downloadPDF}
-                    className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                    className="px-4 py-2 bg-red-500 text-sm text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   >
                     Download as PDF
                   </button>
                   <button
                     onClick={downloadDOC}
-                    className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                    className="px-4 py-2 bg-blue-500 text-sm text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
                   >
                     Download as DOC
                   </button>
                   <button
                     onClick={handleTextToSpeech}
                     className={`px-4 py-2 ${
-                      isSpeaking ? "bg-red-500" : "bg-blue-500"
+                      isSpeaking ? "bg-[#ffb39f] " : "bg-blue-500"
                     } text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 ${
                       isSpeaking ? "focus:ring-red-500" : "focus:ring-blue-500"
                     } focus:ring-opacity-50`}
@@ -338,33 +341,34 @@ const Demo = () => {
                     )}
                   </button>
                 </div>
+
                 {/* Social Media Sharing Buttons */}
-                <div className="flex gap-4 mt-4">
+                <div className="flex gap-4 mt-4 ">
                   <button
                     onClick={shareOnTwitter}
-                    className="px-4 py-2 bg-black
-                     text-white rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="p-2 bg-black flex 
+                     text-white  items-center justify-center text-xs md:text-sm rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                   >
-                    <FaXTwitter className="w-6 h-6" /> Share on Twitter
+                    <FaXTwitter className="w-4 h-4 mr-2" /> Share on Twitter
                   </button>
                   <button
                     onClick={shareOnFacebook}
-                    className="px-2 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="px-2 py-2   items-center justify-center flex text-xs md:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                   >
-                    <FaFacebook className="w-6 h-6" /> Share on Facebook
+                    <FaFacebook className="w-4 h-4  mr-2" /> Share on Facebook
                   </button>
                   {/* Add more share buttons as needed */}
                   <button
                     onClick={shareOnWhatsApp}
-                    className="px-3 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                    className="px-3  items-center justify-center py-2 text-xs md:text-sm bg-green-500 hover:bg-green-700 flex  text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   >
-                    <FaWhatsapp className="w-5 h-5" /> Share on WhatsApp
+                    <FaWhatsapp className="w-4 h-4  mr-2" /> Share on WhatsApp
                   </button>
                   <button
                     onClick={shareOnLinkedIn}
-                    className="px-3 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="px-3 py-2 items-center justify-center text-xs md:text-sm bg-blue-800 flex  text-white rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                   >
-                    <FaLinkedin className="w-5 h-5" /> Share on LinkedIn
+                    <FaLinkedin className="w-4 h-4  mr-2 " /> Share on LinkedIn
                   </button>
                 </div>
               </div>

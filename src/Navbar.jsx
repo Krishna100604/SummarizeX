@@ -67,31 +67,31 @@ const Navbar = () => {
           <div className="lg:flex-grow lg:flex lg:justify-center">
             <Link
               to="/"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
             >
               Contact
             </Link>
             <Link
               to="/profile"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
             >
               Profile
             </Link>
             <Link
               to="/payment"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
             >
               Payment
             </Link>
