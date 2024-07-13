@@ -6,7 +6,7 @@ const ShareModal = ({ isOpen, onClose, article }) => {
   if (!isOpen) return null;
 
   const shareOnTwitter = () => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+    const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(
       article.summary
     )}&url=${encodeURIComponent(article.url)}`;
     window.open(tweetUrl, "_blank");

@@ -9,7 +9,7 @@ export const CreditProvider = ({ children }) => {
 
   const [credits, setCredits] = useState(() => {
     const storedCredits = JSON.parse(localStorage.getItem(`credits_${userId}`));
-    return storedCredits !== null ? storedCredits : 15; // Default to 15 credits if none found
+    return storedCredits !== null ? storedCredits : 5; // Default to 15 credits if none found
   });
 
   useEffect(() => {
