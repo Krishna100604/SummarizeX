@@ -5,6 +5,8 @@ import {
   FaShapes,
   FaPeopleCarry,
   FaTeamspeak,
+  FaLanguage,
+  FaSpotify,
 } from "react-icons/fa";
 
 const cardsData = [
@@ -28,20 +30,20 @@ const cardsData = [
   },
   {
     id: 4,
-    title: "Customization Options",
-    text: "  Tailor your summaries with customizable settings and preferences  to suit your needs.",
-    icon: <FaCommentAlt />,
+    title: "Multilingual Support",
+    text: "  Tailor your summaries with customizable language preferences to suit your needs.",
+    icon: <FaLanguage />,
   },
   {
     id: 5,
-    title: "   Integration with Productivity Tools",
-    text: " Seamlessly integrate Summize with popular productivity tools for enhanced workflow efficiency.",
-    icon: <FaCogs />,
+    title: " Integration with Speech-To-Text Function",
+    text: " Don't have enough time to read, simply use our speech-to-text functionality to listen to your summaries",
+    icon: <FaSpotify />,
   },
   {
     id: 6,
-    title: "Real-time Collaboration",
-    text: " Collaborate in real-time with team members using Summize's collaborative features.",
+    title: "Shareable options",
+    text: " Share your generated summaries through your favorite social media accounts",
     icon: <FaTeamspeak />,
   },
 ];

@@ -395,7 +395,7 @@ const Demo = () => {
                             </button>
                             <button
                               onClick={downloadDOC}
-                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2"
+                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center "
                             >
                               <FaDownload size={16} />
                               Download as DOC
