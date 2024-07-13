@@ -323,7 +323,7 @@ const Demo = () => {
                       {copiedSummary ? (
                         <FaCheck size={18} />
                       ) : (
-                        <FaCopy size={18} />
+                        <FaCopy className= "cursor-pointer" size={18} />
                       )}
                     </div>
                     <button
