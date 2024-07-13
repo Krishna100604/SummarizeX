@@ -44,7 +44,7 @@ const Testimonials = () => {
               />
               <span className="font-bold text-lg">{testimonial.username}</span>
             </div>
-            <p className="text-gray-700 mb-4 dark:text-gray-400">
+            <p className="text-gray-700 mb-4 text-sm md:text-base dark:text-gray-400">
               {testimonial.text}
             </p>
             <div className="flex">

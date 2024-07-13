@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <main className="w-full flex flex-col justify-center items-center p-5 dark:bg-[#0f172a]">
-      <h2 className="text-2xl md:text-5xl font-bold text-sky-400 mb-4">
+      <h2 className="text-3xl sm:text-2xl md:text-4xl lg:text-6xl font-bold dark:text-sky-400 text-[#004D61]  mb-4">
         About Us
       </h2>
 
@@ -46,7 +46,7 @@ const About = () => {
 
         {/* team */}
         <div>
-          <p className="pt-5 text-2xl md:text-5xl text-center font-bold text-[#ffb39f]">
+          <p className="pt-5 text-3xl sm:text-2xl md:text-4xl lg:text-6xl text-center font-bold text-[#ffb39f]">
             Meet our Team
           </p>
           <div className="flex flex-wrap justify-center mt-4">

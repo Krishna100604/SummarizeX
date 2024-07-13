@@ -7,6 +7,7 @@ import {
   FaTeamspeak,
   FaLanguage,
   FaSpotify,
+  FaShareAlt,
 } from "react-icons/fa";
 
 const cardsData = [
@@ -44,7 +45,7 @@ const cardsData = [
     id: 6,
     title: "Shareable options",
     text: " Share your generated summaries through your favorite social media accounts",
-    icon: <FaTeamspeak />,
+    icon: <FaShareAlt />,
   },
 ];
 

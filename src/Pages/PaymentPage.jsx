@@ -50,7 +50,7 @@ const PaymentPage = () => {
     <>
       <header className="p-4">
         <motion.h1
-          className="text-3xl mt-5  dark:text-[#5BD1D7] text-[#004D61]  text-center sm:text-2xl md:text-5xl md:leading-tight font-semibold m-4"
+          className="text-3xl sm:text-2xl md:text-4xl lg:text-6xl mt-5 dark:text-sky-400 text-[#004D61]  text-center md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -62,7 +62,7 @@ const PaymentPage = () => {
           <div className="">
             <h2
               id="paymentSection"
-              className="text-2xl font-semibold mb-4  dark:text-gray-400"
+              className="text-lg md:text-2xl font-semibold mb-4  dark:text-gray-400"
             >
               Select a Plan
             </h2>
@@ -91,7 +91,7 @@ const PaymentPage = () => {
                   &#x20B9;100 / 10 credits
                 </div>
                 <motion.button
-                  className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
+                  className="bg-blue-500 text-sm md:text-lg text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => handlePlanSelect(10)}
@@ -101,7 +101,8 @@ const PaymentPage = () => {
                 <hr />
                 <div className="container mx-auto py-10 px-4 text-blue-400">
                   <p className="flex items-center justify-center">
-                    <FaCheck className="mr-2" /> Summarize up to 10 articles
+                    <FaCheck className="mr-2 text-xs md:text-sm" /> Summarize up
+                    to 10 articles
                   </p>
                 </div>
               </motion.div>
@@ -128,7 +129,7 @@ const PaymentPage = () => {
                   &#x20B9;500 / 100 credits
                 </div>
                 <motion.button
-                  className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
+                  className="bg-blue-500 text-sm md:text-lg text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => handlePlanSelect(100)}
@@ -138,7 +139,8 @@ const PaymentPage = () => {
                 <hr />
                 <div className="container mx-auto py-10 px-4 text-blue-400">
                   <p className="flex items-center justify-center">
-                    <FaCheck className="mr-2" /> Summarize up to 100 articles
+                    <FaCheck className="mr-2 text-xs md:text-sm" /> Summarize up
+                    to 100 articles
                   </p>
                 </div>
               </motion.div>
@@ -167,7 +169,7 @@ const PaymentPage = () => {
                   &#x20B9;1200 / 500 credits
                 </div>
                 <motion.button
-                  className="bg-blue-500 text-white mt-5 py-2 px-4 rounded-lg mb-5"
+                  className="bg-blue-500 text-sm md:text-lg text-white mt-5 py-2 px-4 rounded-lg mb-5"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => handlePlanSelect(500)}
@@ -177,7 +179,8 @@ const PaymentPage = () => {
                 <hr />
                 <div className="container mx-auto py-10 px-4 text-blue-400">
                   <p className="flex items-center justify-center">
-                    <FaCheck className="mr-2" /> Summarize up to 500 articles
+                    <FaCheck className="mr-2 text-xs md:text-sm" /> Summarize up
+                    to 500 articles
                   </p>
                 </div>
               </motion.div>
@@ -185,7 +188,7 @@ const PaymentPage = () => {
           </div>
 
           <div id="cardDetails" className="mt-8">
-            <h2 className="text-2xl font-semibold mb-4  dark:text-gray-400">
+            <h2 className="text-2xl font-semibold mb-4  dark:text-[#5BD1D7]">
               Enter Card Details
             </h2>
             <form className="space-y-4 ">
@@ -199,7 +202,7 @@ const PaymentPage = () => {
                 <input
                   type="text"
                   id="cardNumber"
-                  className="border  dark:bg-gray-500 border-gray-300 p-2 rounded-md focus:outline-none"
+                  className="border dark:bg-[#334158]  border-gray-300 p-2 rounded-md focus:outline-none"
                   placeholder="1234 5678 9012 3456"
                 />
               </div>
@@ -213,7 +216,7 @@ const PaymentPage = () => {
                 <input
                   type="text"
                   id="expiry"
-                  className="border  dark:bg-gray-500 border-gray-300 p-2 rounded-md focus:outline-none"
+                  className="border dark:bg-[#334158] border-gray-300 p-2 rounded-md focus:outline-none"
                   placeholder="MM/YY"
                 />
               </div>
@@ -227,7 +230,7 @@ const PaymentPage = () => {
                 <input
                   type="text"
                   id="cvv"
-                  className="border dark:bg-gray-500  border-gray-300 p-2 rounded-md focus:outline-none"
+                  className="border dark:bg-[#334158] border-gray-300 p-2 rounded-md focus:outline-none"
                   placeholder="123"
                 />
               </div>

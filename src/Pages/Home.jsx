@@ -60,7 +60,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
           <div className="md:w-1/2 mb-6 md:mb-0">
             <motion.h1
-              className="text-4xl md:text-6xl md:leading-tight font-semibold mb-4 dark:text-white text-center md:text-left"
+              className="text-3xl sm:text-2xl md:text-4xl lg:text-6xl md:leading-tight font-semibold mb-4 dark:text-white text-center md:text-left"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -72,7 +72,7 @@ const Home = () => {
               and <span>effectively</span>
             </motion.h1>
             <motion.p
-              className="text-md md:text-lg font-semibold mb-4 text-gray-400 text-center md:text-left"
+              className="text-sm md:text-lg font-semibold mb-4 text-gray-400 text-center md:text-left"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -82,7 +82,7 @@ const Home = () => {
             </motion.p>
             <motion.button
               onClick={handleGetStarted}
-              className="custom-button mt-5 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer block mx-auto md:mx-0"
+              className="custom-button mt-5 text-sm md:text-lg bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer block mx-auto md:mx-0"
               whileHover={{ scale: 1.1 }}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
@@ -109,7 +109,7 @@ const Home = () => {
         </div>
 
         <motion.h1
-          className="text-4xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center sm:text-3xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-3xl sm:text-2xl md:text-4xl lg:text-6xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
@@ -122,7 +122,7 @@ const Home = () => {
         {/* Payment */}
 
         <motion.h1
-          className="text-4xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center sm:text-3xl md:text-6xl md:leading-tight font-semibold m-4"
+          className="text-3xl sm:text-2xl md:text-4xl lg:text-6xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center  md:leading-tight font-semibold m-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
