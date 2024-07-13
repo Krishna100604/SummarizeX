@@ -16,12 +16,9 @@ const Hero = () => {
       {/* Navigation */}
 
       {/* Content */}
-      <div
-        ref={contentRef}
-        className="flex flex-col items-center px-4 md:px-0 dark:bg-[#0f172a]"
-      >
+      <div ref={contentRef} className="flex flex-col items-center px-4 md:px-0">
         <motion.h1
-          className="head_text text-center mt-6 md:mt-10 px-4 md:px-0"
+          className="font-bold  text-4xl md:text-6xl text-center mt-6 md:mt-10 px-4 md:px-0 text-[#ffb39f]"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -30,13 +27,12 @@ const Hero = () => {
           <span className="orange_gradient">SummarizeX</span>
         </motion.h1>
         <motion.h2
-          className="desc text-center mt-4 px-4 md:px-0"
+          className="text-md md:text-lg font-semibold  text-center mt-4 px-4 md:px-0 dark:text-gray-400"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Simply paste the article link and get its summary withins seconds with
-          SummerizeX.
+          Simply paste the article link and get its summary within seconds.
         </motion.h2>
       </div>
     </header>

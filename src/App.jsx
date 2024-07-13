@@ -18,7 +18,7 @@ const App = () => {
     <ThemeProvider>
       <CreditProvider>
         <Router>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen  dark:bg-[#0f172a]">
             {/* Include the Navbar component */}
             <Navbar />
             <main>
