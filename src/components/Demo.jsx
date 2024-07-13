@@ -150,13 +150,32 @@ const Demo = () => {
   };
 
   // Function to handle text-to-speech
+
   const handleTextToSpeech = () => {
+    const speechChunks = article.summary.match(/.{1,200}/g); // Split summary into chunks of 200 characters
+
+    const speakChunk = (index) => {
+      if (index >= speechChunks.length) {
+        setIsSpeaking(false);
+        return;
+      }
+
+      const chunk = speechChunks[index];
+      const utterance = new SpeechSynthesisUtterance(chunk);
+      utterance.lang = selectedLanguage;
+      utterance.onend = () => {
+        speakChunk(index + 1); // Speak next chunk after current one ends
+      };
+
+      window.speechSynthesis.speak(utterance);
+
+      if (index === 0) {
+        setIsSpeaking(true); // Set speaking state to true when starting to speak
+      }
+    };
+
     if (!isSpeaking) {
-      ttsUtterance.current = new SpeechSynthesisUtterance(article.summary);
-      ttsUtterance.current.lang = selectedLanguage;
-      ttsUtterance.current.onend = () => setIsSpeaking(false);
-      window.speechSynthesis.speak(ttsUtterance.current);
-      setIsSpeaking(true);
+      speakChunk(0); // Start speaking from the first chunk
     } else {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
@@ -195,7 +214,7 @@ const Demo = () => {
       <div className="flex flex-col w-full gap-4">
         {/* Search */}
         <form
-          className="relative flex justify-center items-center shadow-lg p-4 rounded-lg bg-white  dark:bg-gray-500"
+          className="relative flex justify-center items-center shadow-lg p-4 rounded-lg bg-white dark:bg-[#1e293b]"
           onSubmit={handleSubmit}
         >
           <img
@@ -209,7 +228,7 @@ const Demo = () => {
             value={article.url}
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
             required
-            className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-500  dark:text-black"
+            className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500  dark:bg-[#2d3c53] dark:text-black"
           />
           <button
             type="submit"
@@ -228,7 +247,7 @@ const Demo = () => {
             id="languageSelect"
             value={selectedLanguage}
             onChange={(e) => handleLanguageChange(e.target.value)}
-            className="px-2 py-1 dark:bg-gray-500 border dark:text-black border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="px-2 py-1 dark:bg-[#1e293b] border dark:text-gray-200 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer"
           >
             <option value="en">English</option>
             <option value="fr">French</option>
@@ -243,7 +262,7 @@ const Demo = () => {
         {/* Toggle Button */}
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className="mt-4 px-4 py-2 bg-blue-500 dark:bg-gray-500 text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+          className="mt-4 px-4 py-2 bg-blue-500 dark:bg-[#1e293b] w-fit text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
         >
           {showHistory ? "Hide History" : "Show History"}
         </button>
@@ -255,12 +274,9 @@ const Demo = () => {
               <div
                 key={`link-${index}`}
                 onClick={() => setArticle(item)}
-                className="flex items-center p-2 bg-gray-200 shadow-md rounded-lg cursor-pointer hover:bg-gray-300"
+                className="flex items-center p-2 bg-gray-200 dark:bg-[#384966] dark:text-white shadow-md rounded-lg cursor-pointer hover:bg-gray-300"
               >
-                <div
-                  className="copy_btn mr-2"
-                  onClick={() => handleCopy(item.url)}
-                >
+                <div className=" mr-2" onClick={() => handleCopy(item.url)}>
                   <img
                     src={copied ? tick : copy}
                     alt="copy_icon"

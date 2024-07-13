@@ -32,7 +32,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Simply paste the article link and get its summary within seconds.
+          Simply paste the article link and get its summary within seconds in
+          your preferred language.
         </motion.h2>
       </div>
     </header>
