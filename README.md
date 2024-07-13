@@ -56,5 +56,3 @@ npm run build
 3. View the summarized content in the results section.
 4. Copy the summary or link for further use.
 
-## Folder Structure
-
