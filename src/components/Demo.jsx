@@ -7,13 +7,12 @@ import { Document, Packer, Paragraph, TextRun } from "docx";
 import { saveAs } from "file-saver";
 import { BsFillPlayFill, BsFillStopFill } from "react-icons/bs"; // Import React Icons
 import {
-  FaFacebook,
-  FaWhatsapp,
-  FaLinkedin,
   FaChevronRight,
   FaCopy,
+  FaChevronDown,
+  FaChevronUp,
+  FaDownload,
   FaCheck,
-  FaShareAlt,
   FaShare,
 } from "react-icons/fa"; // Import Twitter and Facebook icons
 import { FaXTwitter } from "react-icons/fa6";
@@ -164,34 +163,6 @@ const Demo = () => {
     }
   };
 
-  // Function to handle sharing on Twitter
-  const shareOnTwitter = () => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      article.summary
-    )}&url=${encodeURIComponent(article.url)}`;
-    window.open(tweetUrl, "_blank");
-  };
-
-  // Function to handle sharing on Facebook
-  const shareOnFacebook = () => {
-    const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      article.url
-    )}&quote=${encodeURIComponent(article.summary)}`;
-    window.open(fbUrl, "_blank");
-  };
-  const shareOnWhatsApp = () => {
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
-      article.summary
-    )}%20${encodeURIComponent(article.url)}`;
-    window.open(whatsappUrl, "_blank");
-  };
-  const shareOnLinkedIn = () => {
-    const linkedinUrl = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
-      article.url
-    )}&title=${encodeURIComponent(article.summary)}`;
-    window.open(linkedinUrl, "_blank");
-  };
-
   // Function to calculate reading time
   const calculateReadingTime = (text) => {
     const wordsPerMinute = 200; // Average reading speed
@@ -202,6 +173,7 @@ const Demo = () => {
   };
 
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
   // const [article, setArticle] = useState({ url: "", summary: "" });
 
   const handleOpenModal = () => {
@@ -210,6 +182,10 @@ const Demo = () => {
 
   const handleCloseModal = () => {
     setModalOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
   };
 
   const readingTime = calculateReadingTime(article.summary);
@@ -325,7 +301,7 @@ const Demo = () => {
 
                   <div className="flex items-center justify-center">
                     <div
-                      className="  text-blue-600 dark:text-gray-300"
+                      className=" mr-4 text-blue-500 dark:text-gray-300"
                       onClick={() => handleCopySummary(article.summary)}
                     >
                       {copiedSummary ? (
@@ -336,7 +312,7 @@ const Demo = () => {
                     </div>
                     <button
                       onClick={handleOpenModal}
-                      className=" px-4 py-2  text-blue-600 dark:text-gray-300"
+                      className="  text-blue-500 dark:text-gray-300"
                     >
                       <FaShare size={18} />
                     </button>
@@ -352,70 +328,68 @@ const Demo = () => {
                   Estimated reading time: {readingTime} minute(s)
                 </div>
 
-                <div className="flex gap-4 mt-4">
-                  <button
-                    onClick={downloadPDF}
-                    className="px-4 py-2 bg-red-500 text-sm text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-                  >
-                    Download as PDF
-                  </button>
-                  <button
-                    onClick={downloadDOC}
-                    className="px-4 py-2 bg-blue-500 text-sm text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
-                  >
-                    Download as DOC
-                  </button>
-                  <button
-                    onClick={handleTextToSpeech}
-                    className={`px-4 py-2 ${
-                      isSpeaking ? "bg-[#ffb39f] " : "bg-blue-500"
-                    } text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 ${
-                      isSpeaking ? "focus:ring-red-500" : "focus:ring-blue-500"
-                    } focus:ring-opacity-50`}
-                  >
-                    {isSpeaking ? (
-                      <BsFillStopFill className="w-6 h-6" /> // Stop icon
-                    ) : (
-                      <BsFillPlayFill className="w-6 h-6" /> // Play icon
-                    )}
-                  </button>
-                </div>
-
                 <ShareModal
                   isOpen={isModalOpen}
                   onClose={handleCloseModal}
                   article={article}
                 />
-                {/* 
-                {/* Social Media Sharing Buttons 
-                <div className="flex gap-4 mt-4 ">
-                  <button
-                    onClick={shareOnTwitter}
-                    className="p-2 bg-black flex 
-                     text-white  items-center justify-center text-xs md:text-sm rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    <FaXTwitter className="w-4 h-4 mr-2" /> Share on Twitter
-                  </button>
-                  <button
-                    onClick={shareOnFacebook}
-                    className="px-2 py-2   items-center justify-center flex text-xs md:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    <FaFacebook className="w-4 h-4  mr-2" /> Share on Facebook
-                  </button>
-                  {/* Add more share buttons as needed 
-                  <button
-                    onClick={shareOnWhatsApp}
-                    className="px-3  items-center justify-center py-2 text-xs md:text-sm bg-green-500 hover:bg-green-700 flex  text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-                  >
-                    <FaWhatsapp className="w-4 h-4  mr-2" /> Share on WhatsApp
-                  </button>
-                  <button
-                    onClick={shareOnLinkedIn}
-                    className="px-3 py-2 items-center justify-center text-xs md:text-sm bg-blue-800 flex  text-white rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    <FaLinkedin className="w-4 h-4  mr-2 " /> Share on LinkedIn
-                  </button>
-                </div> */}
+
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-4 mt-4">
+                    <button
+                      onClick={handleTextToSpeech}
+                      className={`p-2 ${
+                        isSpeaking ? "bg-[#ffb39f] " : "bg-blue-500"
+                      } text-white rounded-lg hover:bg-blue-600  ${
+                        isSpeaking
+                          ? "focus:ring-red-500"
+                          : "focus:ring-blue-500"
+                      } focus:ring-opacity-50`}
+                    >
+                      {isSpeaking ? (
+                        <BsFillStopFill className="w-4 h-4" /> // Stop icon
+                      ) : (
+                        <BsFillPlayFill className="w-4 h-4" /> // Play icon
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="relative">
+                    <div className="">
+                      <button
+                        onClick={toggleDropdown}
+                        className="font-medium rounded-lg gap-1 hover:text-blue-700 text-blue-500 dark:text-gray-300 flex items-center"
+                      >
+                        <FaDownload size={20} />
+                        {isDropdownOpen ? (
+                          <FaChevronUp size={15} />
+                        ) : (
+                          <FaChevronDown size={15} />
+                        )}
+                      </button>
+                      {isDropdownOpen && (
+                        <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white  dark:bg-[#3c4b63] ring-1 ring-black ring-opacity-5 z-10">
+                          <div className="py-1">
+                            <button
+                              onClick={downloadPDF}
+                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2"
+                            >
+                              <FaDownload size={16} />
+                              Download as PDF
+                            </button>
+                            <button
+                              onClick={downloadDOC}
+                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2"
+                            >
+                              <FaDownload size={16} />
+                              Download as DOC
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
             )
           )}
