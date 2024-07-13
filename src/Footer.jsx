@@ -1,6 +1,7 @@
 import React from "react";
 import { FaReact } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { SiTailwindcss, SiRapid, SiClerk } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -14,9 +15,12 @@ const Footer = () => {
               consumption for busy professionals.
             </p>
 
-            <p className="mt-5">
-              Built using <FaReact size={25} />
-            </p>
+            <p className="mt-5 display flex">
+              Built using :<><FaReact title="React" className="ml-2" size={25} /> 
+              <SiTailwindcss title="TailwindCss"  className="ml-2" size={25}/>  
+              <SiRapid  title="RapidApi"  className="ml-2" size={25}/>  
+              <SiClerk title="Clerk"  className="ml-2" size={25}/>  
+              </> </p>
           </div>
           <div className="flex flex-col">
             <h2 className="text-xl font-bold mb-2">Links</h2>
