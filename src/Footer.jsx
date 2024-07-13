@@ -16,11 +16,14 @@ const Footer = () => {
             </p>
 
             <p className="mt-5 display flex">
-              Built using :<><FaReact title="React" className="ml-2" size={25} /> 
-              <SiTailwindcss title="TailwindCss"  className="ml-2" size={25}/>  
-              <SiRapid  title="RapidApi"  className="ml-2" size={25}/>  
-              <SiClerk title="Clerk"  className="ml-2" size={25}/>  
-              </> </p>
+              Built using :
+              <>
+                <FaReact title="React" className="ml-2" size={25} />
+                <SiTailwindcss title="TailwindCss" className="ml-2" size={25} />
+                <SiRapid title="RapidApi" className="ml-2" size={25} />
+                <SiClerk title="Clerk" className="ml-2" size={25} />
+              </>{" "}
+            </p>
           </div>
           <div className="flex flex-col">
             <h2 className="text-xl font-bold mb-2">Links</h2>

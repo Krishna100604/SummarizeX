@@ -13,9 +13,9 @@ import {
   FaHome,
   FaGithub,
   FaUserCircle,
-} from "react-icons/fa"; // Import FaUserCircle for Profile icon
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Switch from "react-switch"; // Import Switch component
+import Switch from "react-switch";
 import { useTheme } from "./ThemeProvider";
 import { logo } from "./assets";
 import { useState } from "react";
@@ -23,7 +23,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isLoaded, isSignedIn, user } = useUser(); // Get the user details
+  const { isLoaded, isSignedIn, user } = useUser();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleMenu = () => {
@@ -36,14 +36,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="p-2 bg-sky-500">
+    <nav className="bg-sky-500 p-2">
       <div className="container mx-auto flex items-center justify-between flex-wrap">
-        <div className="flex items-center flex-shrink-0 mr-6">
+        <div className="flex items-center flex-shrink-0">
           <Link to="/" className="flex items-center">
             {/* <img src={logo} alt="logo" className="h-8 w-8 mr-2" /> */}
-            <span className="font-black text-2xl font-satoshi  text-white">
-              SummarizeX
-            </span>
+            <span className="text-2xl font-black text-white">SummarizeX</span>
           </Link>
         </div>
         <div className="block lg:hidden">
@@ -62,52 +60,51 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+          className={`w-full ${
             isOpen ? "block" : "hidden"
-          }`}
+          } lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0`}
         >
-          {" "}
-          <div className="text-base lg:flex-grow lg:flex lg:justify-center">
+          <div className="lg:flex-grow lg:flex lg:justify-center">
             <Link
               to="/"
-              className="block lg:inline-block lg:mt-0 font-semibold  text-white hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="block lg:inline-block lg:mt-0 font-semibold text-white  hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
             >
               Contact
             </Link>
             <Link
               to="/profile"
-              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
             >
               Profile
             </Link>
             <Link
               to="/payment"
-              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300 mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
             >
               Payment
             </Link>
             <a
               href="https://github.com/Krishna100604/AI-Summarizer"
-              className="block lg:inline-block lg:mt-0 font-semibold  text-white  hover:text-gray-300mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
             </a>
           </div>
-          <div className="flex items-center ">
+          <div className="flex items-center mt-4 lg:mt-0">
             <button
               onClick={toggleDarkMode}
               className="flex items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
@@ -123,7 +120,6 @@ const Navbar = () => {
                 <SignInButton />
               </SignedOut>
             </div>
-
             <SignedIn>
               <div className="flex items-center text-white">
                 {isLoaded && isSignedIn && user && (

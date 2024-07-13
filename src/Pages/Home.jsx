@@ -44,9 +44,12 @@ const Home = () => {
 
   return (
     <>
-      <header className="p-10 min-h-screen dark:bg-[#0f172a] " style={styles}>
+      <header
+        className="p-5 md:p-10 min-h-screen dark:bg-[#0f172a]"
+        style={styles}
+      >
         <motion.span
-          className="text-sm dark:text-[#ffb39f]  font-semibold"
+          className="text-sm dark:text-[#ffb39f] font-semibold block text-center md:text-left"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -54,10 +57,10 @@ const Home = () => {
           AI powered summaries --------- simplified
         </motion.span>
 
-        <div className="flex items-center justify-center">
-          <div className="md:w-1/2 sm:w-full mb-6 ">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
+          <div className="md:w-1/2 mb-6 md:mb-0">
             <motion.h1
-              className="text-4xl sm:text-4xl md:text-6xl md:leading-tight font-semibold mb-4 dark:text-white"
+              className="text-4xl md:text-6xl md:leading-tight font-semibold mb-4 dark:text-white text-center md:text-left"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -69,7 +72,7 @@ const Home = () => {
               and <span>effectively</span>
             </motion.h1>
             <motion.p
-              className="text-md sm:text-sm md:text-lg font-semibold mb-4 text-gray-400"
+              className="text-md md:text-lg font-semibold mb-4 text-gray-400 text-center md:text-left"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -79,7 +82,7 @@ const Home = () => {
             </motion.p>
             <motion.button
               onClick={handleGetStarted}
-              className="custom-button mt-5 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer"
+              className="custom-button mt-5 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded focus:outline-none cursor-pointer block mx-auto md:mx-0"
               whileHover={{ scale: 1.1 }}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
@@ -97,7 +100,7 @@ const Home = () => {
               transition={{ duration: 1, delay: 0.3 }}
             >
               <img
-                className="dark:bg-white rounded-t-full"
+                className="w-full dark:bg-white rounded-t-full"
                 src={img}
                 alt="Phone"
               />
@@ -116,7 +119,7 @@ const Home = () => {
 
         <Cards />
 
-        {/* payment */}
+        {/* Payment */}
 
         <motion.h1
           className="text-4xl mt-5 text-[#004D61] dark:text-[#5BD1D7] text-center sm:text-3xl md:text-6xl md:leading-tight font-semibold m-4"
@@ -130,7 +133,7 @@ const Home = () => {
         <div className="container mx-auto py-10 px-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.div
-              className="rounded-lg  dark:bg-[#1e293b] p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
+              className="rounded-lg dark:bg-[#1e293b] p-6 border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -139,7 +142,7 @@ const Home = () => {
               <div className="text-4xl mb-4 text-blue-500">
                 <FaUser />
               </div>
-              <h3 className="text-xl font-bold mb-2 dark:text-white ">Basic</h3>
+              <h3 className="text-xl font-bold mb-2 dark:text-white">Basic</h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
                 Perfect for individuals
               </p>
@@ -155,13 +158,13 @@ const Home = () => {
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
-                  <FaCheck className="mr-2" /> Summarize upto 10 articles
+                  <FaCheck className="mr-2" /> Summarize up to 10 articles
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              className="rounded-lg p-6  dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
+              className="rounded-lg p-6 dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -170,7 +173,7 @@ const Home = () => {
               <div className="text-4xl mb-4 text-blue-500">
                 <FaStar />
               </div>
-              <h3 className="text-xl font-bold mb-2  dark:text-white">Pro</h3>
+              <h3 className="text-xl font-bold mb-2 dark:text-white">Pro</h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
                 Ideal for small teams
               </p>
@@ -185,13 +188,13 @@ const Home = () => {
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
-                  <FaCheck className="mr-2" /> Summarize upto 100 articles
+                  <FaCheck className="mr-2" /> Summarize up to 100 articles
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              className="rounded-lg p-6  dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
+              className="rounded-lg p-6 dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -200,7 +203,7 @@ const Home = () => {
               <div className="text-4xl mb-4 text-blue-500">
                 <FaStar />
               </div>
-              <h3 className="text-xl font-bold mb-2  dark:text-white">
+              <h3 className="text-xl font-bold mb-2 dark:text-white">
                 Enterprise
               </h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
@@ -218,7 +221,7 @@ const Home = () => {
               <hr />
               <div className="container mx-auto py-10 px-4 text-blue-400">
                 <p className="flex items-center justify-center">
-                  <FaCheck className="mr-2" /> Summarize upto 500 articles
+                  <FaCheck className="mr-2" /> Summarize up to 500 articles
                 </p>
               </div>
             </motion.div>
@@ -227,7 +230,7 @@ const Home = () => {
 
         <Testimonials />
       </header>
-      <Footer/>
+      <Footer />
     </>
   );
 };
