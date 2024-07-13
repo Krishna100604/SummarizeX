@@ -108,7 +108,7 @@
 
 /* Orange gradient text */
 .orange_gradient {
-  /* @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent; */
+  @apply bg-gradient-to-r from-blue-500 via-violet-600 to-red-500 bg-clip-text text-transparent;
 }
 
 /* Description text */

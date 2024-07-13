@@ -72,7 +72,7 @@ const Home = () => {
               and <span>effectively</span>
             </motion.h1>
             <motion.p
-              className="text-sm md:text-lg font-semibold mb-4 text-gray-400 text-center md:text-left"
+              className="text-sm md:text-lg font-semibold mb-4 text-gray-600 text-center md:text-left"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
