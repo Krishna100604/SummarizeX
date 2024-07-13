@@ -62,9 +62,9 @@ const Navbar = () => {
         <div
           className={`w-full ${
             isOpen ? "block" : "hidden"
-          } lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0`}
+          } lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0 transition duration-600 ease-out`}
         >
-          <div className="lg:flex-grow lg:flex lg:justify-center">
+          <div className="lg:flex-grow items-center lg:flex lg:justify-center">
             <Link
               to="/"
               className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"

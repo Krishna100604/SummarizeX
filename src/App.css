@@ -11,6 +11,26 @@
 @tailwind utilities;
 
 /* Custom styles */
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the entire scrollbar */
+}
+
+/* Style the track (progress bar) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the track */
+}
+
+/* Style the handle (scroll thumb) */
+::-webkit-scrollbar-thumb {
+  background: rgb(136, 222, 250); /* Background color of the handle */
+  border-radius: 6px; /* Rounded corners of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(70, 178, 214); /* Background color when hovering */
+}
 
 /* Main section */
 .main {
