@@ -13,8 +13,11 @@ import {
   FaChevronRight,
   FaCopy,
   FaCheck,
+  FaShareAlt,
+  FaShare,
 } from "react-icons/fa"; // Import Twitter and Facebook icons
 import { FaXTwitter } from "react-icons/fa6";
+import ShareModal from "./ShareModal/ShareModal";
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: "", summary: "" });
@@ -188,6 +191,29 @@ const Demo = () => {
     )}&title=${encodeURIComponent(article.summary)}`;
     window.open(linkedinUrl, "_blank");
   };
+
+  // Function to calculate reading time
+  const calculateReadingTime = (text) => {
+    const wordsPerMinute = 200; // Average reading speed
+    const words = text.split(" ").length;
+    const minutes = words / wordsPerMinute;
+    const readingTime = Math.ceil(minutes);
+    return readingTime;
+  };
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  // const [article, setArticle] = useState({ url: "", summary: "" });
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const readingTime = calculateReadingTime(article.summary);
+
   return (
     <section className="mt-16 w-full max-w-4xl mx-auto px-4">
       <div className="flex flex-col w-full gap-4">
@@ -297,15 +323,23 @@ const Demo = () => {
                     Article <span className="blue_gradient">Summary</span>
                   </h2>
 
-                  <div
-                    className=" ml-4 text-blue-700 dark:text-gray-300"
-                    onClick={() => handleCopySummary(article.summary)}
-                  >
-                    {copiedSummary ? (
-                      <FaCheck size={18} />
-                    ) : (
-                      <FaCopy size={18} />
-                    )}
+                  <div className="flex items-center justify-center">
+                    <div
+                      className="  text-blue-600 dark:text-gray-300"
+                      onClick={() => handleCopySummary(article.summary)}
+                    >
+                      {copiedSummary ? (
+                        <FaCheck size={18} />
+                      ) : (
+                        <FaCopy size={18} />
+                      )}
+                    </div>
+                    <button
+                      onClick={handleOpenModal}
+                      className=" px-4 py-2  text-blue-600 dark:text-gray-300"
+                    >
+                      <FaShare size={18} />
+                    </button>
                   </div>
                 </div>
                 <div className="summary_box ">
@@ -313,6 +347,11 @@ const Demo = () => {
                     {article.summary}
                   </p>
                 </div>
+
+                <div className="text-sm text-gray-600 dark:text-gray-300">
+                  Estimated reading time: {readingTime} minute(s)
+                </div>
+
                 <div className="flex gap-4 mt-4">
                   <button
                     onClick={downloadPDF}
@@ -342,7 +381,13 @@ const Demo = () => {
                   </button>
                 </div>
 
-                {/* Social Media Sharing Buttons */}
+                <ShareModal
+                  isOpen={isModalOpen}
+                  onClose={handleCloseModal}
+                  article={article}
+                />
+                {/* 
+                {/* Social Media Sharing Buttons 
                 <div className="flex gap-4 mt-4 ">
                   <button
                     onClick={shareOnTwitter}
@@ -357,7 +402,7 @@ const Demo = () => {
                   >
                     <FaFacebook className="w-4 h-4  mr-2" /> Share on Facebook
                   </button>
-                  {/* Add more share buttons as needed */}
+                  {/* Add more share buttons as needed 
                   <button
                     onClick={shareOnWhatsApp}
                     className="px-3  items-center justify-center py-2 text-xs md:text-sm bg-green-500 hover:bg-green-700 flex  text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
@@ -370,7 +415,7 @@ const Demo = () => {
                   >
                     <FaLinkedin className="w-4 h-4  mr-2 " /> Share on LinkedIn
                   </button>
-                </div>
+                </div> */}
               </div>
             )
           )}
