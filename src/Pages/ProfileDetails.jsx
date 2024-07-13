@@ -23,21 +23,21 @@ const ProfileDetails = () => {
         <div className="px-6 mt-6">
           <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
-              <FaCoins className="mr-2" /> Credits
+              <FaCoins className="mr-2" /> Credits :
             </span>
-            <span className="dark:text-gray-300">{credits}</span>
+            <span className="dark:text-gray-300 font-bold">{credits}</span>
           </div>
           <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
-              <FaStar className="mr-2" /> Membership Status
+              <FaStar className="mr-2" /> Membership Status : 
             </span>
-            <span className="dark:text-gray-300">Premium Member</span>
+            <span className="dark:text-gray-300 font-bold">Premium Member</span>
           </div>
           <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
-              <FaHistory className="mr-2" /> Recent Activity
+              <FaHistory className="mr-2" /> Recent Activity :
             </span>
-            <span className="dark:text-gray-300">Summarized 5 articles</span>
+            <span className="dark:text-gray-300 font-bold">Summarized 5 articles</span>
           </div>
           {/* Add more details as needed */}
           <div className="flex justify-center mt-4">
