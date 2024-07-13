@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex items-center flex-shrink-0">
           <Link to="/" className="flex items-center">
             {/* <img src={logo} alt="logo" className="h-8 w-8 mr-2" /> */}
-            <span className="text-2xl font-black text-white">SummarizeX</span>
+            <span className="text-4xl font-black text-white font-sans ">SummarizeX</span>
           </Link>
         </div>
         <div className="block lg:hidden">
