@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaUser, FaStar, FaCheck } from "react-icons/fa";
+import { FaUser, FaStar, FaCheck, FaBusinessTime } from "react-icons/fa";
 import img from "../assets/images/home-ai.png";
 import review1 from "../assets/images/zade.jpg";
 import review2 from "../assets/images/adyy.jpg";
@@ -49,7 +49,7 @@ const Home = () => {
         style={styles}
       >
         <motion.span
-          className="text-sm dark:text-[#ffb39f] font-semibold block text-center md:text-left"
+          className="text-sm text-gray-500 dark:text-[#ffb39f] font-semibold block text-center md:text-left"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -139,7 +139,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4 text-blue-500">
+              <div className="text-3xl mb-4 text-blue-500">
                 <FaUser />
               </div>
               <h3 className="text-xl font-bold mb-2 dark:text-white">Basic</h3>
@@ -170,9 +170,12 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4 text-blue-500">
+              <div className="text-3xl  mb-4 text-blue-500">
                 <FaStar />
               </div>
+              <p className="text-sm md:base font-semibold text-[#5BD1D7]">
+                Recommended
+              </p>
               <h3 className="text-xl font-bold mb-2 dark:text-white">Pro</h3>
               <p className="text-[#ffb39f] mb-4 font-bold">
                 Ideal for small teams
@@ -200,8 +203,8 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4 text-blue-500">
-                <FaStar />
+              <div className="text-3xl mb-4 text-blue-500">
+                <FaBusinessTime />
               </div>
               <h3 className="text-xl font-bold mb-2 dark:text-white">
                 Enterprise

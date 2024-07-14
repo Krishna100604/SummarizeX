@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import Switch from "react-switch";
 import { useTheme } from "./ThemeProvider";
-import { logo } from "./assets";
+import logo from "./assets/images/logo2.png";
 import { useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 
@@ -40,8 +40,8 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between flex-wrap">
         <div className="flex items-center flex-shrink-0">
           <Link to="/" className="flex items-center">
-            {/* <img src={logo} alt="logo" className="h-8 w-8 mr-2" /> */}
-            <span className="text-4xl font-black text-white font-sans ">SummarizeX</span>
+            <img src={logo} alt="logo" className="w-[7rem] mr-2" />
+            <span className="text-4xl font-black text-white font-sans "></span>
           </Link>
         </div>
         <div className="block lg:hidden">
