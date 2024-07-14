@@ -3,8 +3,6 @@ import { copy, linkIcon, loader, tick } from "../assets"; // Adjust this based o
 import { useLazyGetSummaryQuery } from "../services/article";
 import CreditContext from "../contexts/CreditContext";
 import { jsPDF } from "jspdf";
-import { Document, Packer, Paragraph, TextRun } from "docx";
-import { saveAs } from "file-saver";
 import { BsFillPlayFill, BsFillStopFill } from "react-icons/bs"; // Import React Icons
 import {
   FaChevronRight,
@@ -14,9 +12,12 @@ import {
   FaDownload,
   FaCheck,
   FaShare,
+  FaLink,
 } from "react-icons/fa"; // Import Twitter and Facebook icons
 import { FaXTwitter } from "react-icons/fa6";
 import ShareModal from "./ShareModal/ShareModal";
+import { Document, Packer, Paragraph, TextRun } from "docx";
+import { saveAs } from "file-saver";
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: "", summary: "" });
@@ -109,6 +110,13 @@ const Demo = () => {
 
   const downloadDOC = async () => {
     try {
+      // Check if article.summary is defined
+      if (!article.summary) {
+        console.error("No summary available in article object.");
+        return;
+      }
+
+      // Create a new Document
       const doc = new Document({
         sections: [
           {
@@ -122,15 +130,18 @@ const Demo = () => {
         ],
       });
 
-      const buffer = await Packer.toBuffer(doc);
-      const blob = new Blob([buffer], {
-        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      });
+      // Generate the blob
+      const blob = await Packer.toBlob(doc);
+
+      // Use FileSaver to save the Blob as a file
       saveAs(blob, "summary.docx");
     } catch (error) {
       console.error("Error creating DOC:", error);
     }
   };
+
+  console.log("Article summary:", article.summary);
+  //console.log("Buffer length:", buffer.byteLength);
 
   // Function to handle language change
   const handleLanguageChange = async (language) => {
@@ -217,22 +228,18 @@ const Demo = () => {
           className="relative flex justify-center items-center shadow-lg p-4 rounded-lg bg-white dark:bg-[#1e293b]"
           onSubmit={handleSubmit}
         >
-          <img
-            src={linkIcon}
-            alt="link-icon"
-            className="absolute left-6 w-6 h-6"
-          />
+          <FaLink size={22} className="text-blue-500 dark:text-white mr-2" />
           <input
             type="url"
             placeholder="Paste the article link"
             value={article.url}
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
             required
-            className="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500  dark:bg-[#2d3c53] dark:text-black"
+            className="w-full p-2 border dark:text-white border-gray-300 rounded-lg focus:outline-none focus:border-blue-500  dark:bg-[#2d3c53] "
           />
           <button
             type="submit"
-            className="ml-2 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="ml-2 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
           >
             <FaChevronRight size={17} />
           </button>
@@ -247,7 +254,7 @@ const Demo = () => {
             id="languageSelect"
             value={selectedLanguage}
             onChange={(e) => handleLanguageChange(e.target.value)}
-            className="px-2 py-1 dark:bg-[#1e293b] border dark:text-gray-200 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="px-2 py-1 dark:bg-[#1e293b] border dark:text-gray-200 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer "
           >
             <option value="en">English</option>
             <option value="fr">French</option>
@@ -323,7 +330,7 @@ const Demo = () => {
                       {copiedSummary ? (
                         <FaCheck size={18} />
                       ) : (
-                        <FaCopy className= "cursor-pointer" size={18} />
+                        <FaCopy className="cursor-pointer" size={18} />
                       )}
                     </div>
                     <button
@@ -395,7 +402,7 @@ const Demo = () => {
                             </button>
                             <button
                               onClick={downloadDOC}
-                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center "
+                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2 "
                             >
                               <FaDownload size={16} />
                               Download as DOC

@@ -36,7 +36,7 @@ const Testimonials = () => {
             key={index}
             className="bg-brown rounded-lg p-5 flex flex-col items-start"
           >
-            <div className="flex items-center mb-2 dark:text-gray-300">
+            <div className="flex items-center mb-2  dark:text-gray-300">
               <img
                 src={testimonial.image}
                 alt={testimonial.username}
