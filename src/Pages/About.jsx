@@ -34,19 +34,41 @@ const About = () => {
         className="h-3/4 sm:h-2/4 text-gray-600 dark:text-gray-200"
         ref={aboutSectionRef}
       >
-        <img className="items-center justify-center mx-auto" src={img} alt="" />
-        <div className="flex flex-col items-center py-2 px-4">
-          <p className="text-sm sm:text-lg text-center">
-            We are dedicated to provide the best summarization tool which makes
-            lengthy articles easier to digest. We aim to revolutionize the way
-            you read and understand content by providing accurate and efficient
-            summaries.
-          </p>
+        <div className="flex justify-center items-center">
+          <img
+            className="dark:bg-[#caddfe] rounded-full mx-auto"
+            src={img}
+            alt=""
+          />
+          <div className="  py-2 px-4">
+            <p className=" text-sm sm:text-lg ">
+              <p className="mt-4">
+                In today’s fast-paced world, time is a valuable commodity, and
+                staying informed shouldn't mean spending hours sifting through
+                lengthy articles. Our mission is to transform the way you read
+                and understand information.
+              </p>
+              <p className="mt-4">
+                {" "}
+                That’s why we’ve developed a state-of-the-art summarization tool
+                designed to make content more accessible and manageable. Our
+                tool leverages advanced AI algorithms to distill lengthy
+                articles into concise, accurate, and efficient summaries.
+              </p>
+              <p className="mt-4">
+                Whether you’re a busy professional, a student, or simply someone
+                who loves to stay informed, our tool helps you grasp the
+                essentials quickly and effortlessly. We are dedicated to
+                providing you with the best summarization technology, ensuring
+                you get the most relevant information without the time-consuming
+                read.
+              </p>
+            </p>
+          </div>
         </div>
-
         {/* team */}
         <div>
-          <p className="pt-5 text-3xl sm:text-2xl md:text-4xl lg:text-6xl text-center font-bold text-[#ffb39f]">
+          <p className="pt-5 flex flex-col text-3xl sm:text-2xl md:text-4xl lg:text-6xl text-center font-bold text-[#ffb39f]">
             Meet our Team
           </p>
           <div className="flex flex-wrap justify-center mt-4">
