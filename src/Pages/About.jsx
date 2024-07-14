@@ -36,7 +36,7 @@ const About = () => {
       >
         <div className="flex justify-center items-center">
           <img
-            className="dark:bg-[#caddfe] rounded-full mx-auto"
+            className="dark:bg-white rounded-full mx-auto"
             src={img}
             alt=""
           />
@@ -68,8 +68,8 @@ const About = () => {
         </div>
         {/* team */}
         <div>
-          <p className="pt-5 flex flex-col text-3xl sm:text-2xl md:text-4xl lg:text-6xl text-center font-bold text-[#ffb39f]">
-            Meet our Team
+          <p className="pt-5 flex flex-col text-xl sm:text-2xl text-center font-bold text-[#ffb39f]">
+            Developed By:
           </p>
           <div className="flex flex-wrap justify-center mt-4">
             {contributors.map((contributor) => (

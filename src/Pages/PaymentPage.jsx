@@ -101,8 +101,8 @@ const PaymentPage = () => {
                 <hr />
                 <div className="container mx-auto py-10 px-4 text-blue-400">
                   <p className="flex items-center justify-center">
-                    <FaCheck className="mr-2 text-xs md:text-sm" /> Summarize up
-                    to 10 articles
+                    <FaCheck className="mr-2 text-sm" /> Summarize up to 10
+                    articles
                   </p>
                 </div>
               </motion.div>
@@ -118,8 +118,11 @@ const PaymentPage = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 onClick={() => handlePlanSelect(100)}
               >
-                <div className="text-4xl mb-4 text-blue-500">
+                <div className="text-3xl items-center justify-start flex mb-4 text-blue-500">
                   <FaStar />
+                  <p className="text-sm mx-auto md:base font-semibold text-[#5BD1D7]">
+                    Recommended
+                  </p>
                 </div>
                 <h3 className="text-xl font-bold mb-2  dark:text-white">Pro</h3>
                 <p className=" mb-4 font-bold text-[#ffb39f]">
@@ -139,8 +142,8 @@ const PaymentPage = () => {
                 <hr />
                 <div className="container mx-auto py-10 px-4 text-blue-400">
                   <p className="flex items-center justify-center">
-                    <FaCheck className="mr-2 text-xs md:text-sm" /> Summarize up
-                    to 100 articles
+                    <FaCheck className="mr-2 text-sm" /> Summarize up to 100
+                    articles
                   </p>
                 </div>
               </motion.div>
@@ -179,8 +182,8 @@ const PaymentPage = () => {
                 <hr />
                 <div className="container mx-auto py-10 px-4 text-blue-400">
                   <p className="flex items-center justify-center">
-                    <FaCheck className="mr-2 text-xs md:text-sm" /> Summarize up
-                    to 500 articles
+                    <FaCheck className="mr-2 text-sm" /> Summarize up to 500
+                    articles
                   </p>
                 </div>
               </motion.div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   SignedIn,
@@ -7,19 +7,9 @@ import {
   useUser,
   UserButton,
 } from "@clerk/clerk-react";
-import {
-  FaInfoCircle,
-  FaEnvelope,
-  FaHome,
-  FaGithub,
-  FaUserCircle,
-} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Switch from "react-switch";
-import { useTheme } from "./ThemeProvider";
-import logo from "./assets/images/logo2.png";
-import { useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
+import logo from "./assets/images/logo2.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,11 +26,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-sky-500 p-2">
-      <div className="container mx-auto flex items-center justify-between flex-wrap">
-        <div className="flex items-center flex-shrink-0">
+    <nav className="bg-sky-500 dark:bg-[#00215E] p-1">
+      <div className="container mx-auto flex items-center flex-wrap justify-between">
+        <div className="flex items-center flex-shrink-0 ">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="logo" className="w-[7rem] mr-2" />
+            <img src={logo} alt="logo" className="w-[7rem] " />
             <span className="text-4xl font-black text-white font-sans "></span>
           </Link>
         </div>
@@ -62,9 +52,9 @@ const Navbar = () => {
         <div
           className={`w-full ${
             isOpen ? "block" : "hidden"
-          } lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0 transition duration-600 ease-out`}
+          } lg:flex lg:items-center lg:w-auto lg:mt-0 transition duration-900 ease-out`}
         >
-          <div className="lg:flex-grow items-center lg:flex lg:justify-center">
+          <div className="mr-10 flex items-center justify-center">
             <Link
               to="/"
               className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
@@ -83,18 +73,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Link
-              to="/profile"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
-            >
-              Profile
-            </Link>
-            <Link
-              to="/payment"
-              className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
-            >
-              Payment
-            </Link>
+
             <a
               href="https://github.com/Krishna100604/AI-Summarizer"
               className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-300 mr-4"
@@ -105,31 +84,31 @@ const Navbar = () => {
             </a>
           </div>
           <div className="flex items-center mt-4 lg:mt-0">
-            <button
-              onClick={toggleDarkMode}
-              className="flex items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
-            >
-              {isDarkMode ? <FiMoon /> : <FiSun />}
-            </button>
-            <div
-              className={`px-2 py-1 rounded-lg ${
-                !isSignedIn ? "bg-white" : ""
-              }`}
-            >
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
-            </div>
+            <SignedOut>
+              <SignInButton className="bg-white rounded-md px-2 py-1 text-blue-300 font-medium" />
+            </SignedOut>
             <SignedIn>
               <div className="flex items-center text-white">
                 {isLoaded && isSignedIn && user && (
                   <>
-                    <span className="mr-2">{user.firstName}</span>
+                    {/* < span className="mr-2">{user.firstName}</> */}
                     <UserButton />
+                    <Link
+                      to="/profile"
+                      className="block lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 ml-4"
+                    >
+                      My Profile
+                    </Link>
                   </>
                 )}
               </div>
             </SignedIn>
+            <button
+              onClick={toggleDarkMode}
+              className="flex items-center justify-center ml-4 bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
+            >
+              {isDarkMode ? <FiMoon /> : <FiSun />}
+            </button>
           </div>
         </div>
       </div>

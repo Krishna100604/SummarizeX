@@ -225,7 +225,7 @@ const Demo = () => {
       <div className="flex flex-col w-full gap-4">
         {/* Search */}
         <form
-          className="relative flex justify-center items-center shadow-lg p-4 rounded-lg bg-white dark:bg-[#1e293b]"
+          className="relative bg-sky-100 flex justify-center items-center shadow-lg p-4 rounded-lg  dark:bg-[#1e293b]"
           onSubmit={handleSubmit}
         >
           <FaLink size={22} className="text-blue-500 dark:text-white mr-2" />
@@ -247,14 +247,14 @@ const Demo = () => {
 
         {/* Language Selection */}
         <div className="flex items-center gap-2 mt-4 text-md md:text-lg font-semibold  dark:text-gray-400">
-          <label htmlFor="languageSelect" className="font-medium">
+          <label htmlFor="languageSelect" className=" text-sm md:text-base">
             Select Language:
           </label>
           <select
             id="languageSelect"
             value={selectedLanguage}
             onChange={(e) => handleLanguageChange(e.target.value)}
-            className="px-2 py-1 dark:bg-[#1e293b] border dark:text-gray-200 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer "
+            className="px-2 py-1 text-sm md:text-base dark:bg-[#1e293b] border dark:text-gray-200 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer "
           >
             <option value="en">English</option>
             <option value="fr">French</option>
@@ -269,7 +269,7 @@ const Demo = () => {
         {/* Toggle Button */}
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className="mt-4 px-4 py-2 bg-blue-500 dark:bg-[#1e293b] w-fit text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+          className="mt-4 px-4 py-2 text-sm md:text-base bg-blue-500 dark:bg-[#1e293b] w-fit text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
         >
           {showHistory ? "Hide History" : "Show History"}
         </button>

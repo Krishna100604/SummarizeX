@@ -37,13 +37,13 @@ const Profile = () => {
           </h2>
         </div>
         <div className="px-6 mt-4">
-          <div className="flex items-center justify-between py-2">
+          {/* <div className="flex items-center justify-between py-2">
             <span className="font-semibold  dark:text-[#5BD1D7]">Phone :</span>
             <span>+5999-661-6161</span>
-          </div>
-          <div className="flex items-center justify-between py-2 border-t">
+          </div> */}
+          <div className="flex items-center justify-between py-2 ">
             <span className="font-semibold mr-2  dark:text-[#5BD1D7]">
-              Mail :
+              Email :
             </span>
             <span>
               {user && user.emailAddresses
@@ -63,7 +63,7 @@ const Profile = () => {
           </div>
           <div className="flex items-center justify-between py-2 border-t">
             <span className="flex items-center  dark:text-[#5BD1D7]">
-              <FaUser className="mr-2" /> Profile details
+              <FaUser className="mr-2" /> Credit details
             </span>
             <Link to="/profile-details">
               <FaChevronRight />
