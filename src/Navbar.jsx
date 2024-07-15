@@ -26,11 +26,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-sky-500 dark:bg-[#00215E] p-1">
-      <div className="container mx-auto flex items-center flex-wrap justify-between">
-        <div className="flex items-center flex-shrink-0 ">
+    <nav className="bg-sky-500  dark:bg-[#00215E] p-2">
+      <div className="container mx-auto flex items-center justify-between flex-wrap">
+        <div className="flex items-center flex-shrink-0">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="logo" className="w-[7rem] " />
+            <img src={logo} alt="logo" className="w-[7rem] mr-2" />
             <span className="text-4xl font-black text-white font-sans "></span>
           </Link>
         </div>
@@ -52,9 +52,9 @@ const Navbar = () => {
         <div
           className={`w-full ${
             isOpen ? "block" : "hidden"
-          } lg:flex lg:items-center lg:w-auto lg:mt-0 transition duration-900 ease-out`}
+          } lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0 transition duration-600 ease-out`}
         >
-          <div className="mr-10 flex items-center justify-center">
+          <div className="lg:flex-grow items-center mr-10 lg:flex lg:justify-center">
             <Link
               to="/"
               className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white hover:text-gray-100 mr-4"
@@ -85,13 +85,13 @@ const Navbar = () => {
           </div>
           <div className="flex items-center mt-4 lg:mt-0">
             <SignedOut>
-              <SignInButton className="bg-white rounded-md px-2 py-1 text-blue-300 font-medium" />
+              <SignInButton />
             </SignedOut>
             <SignedIn>
               <div className="flex items-center text-white">
                 {isLoaded && isSignedIn && user && (
                   <>
-                    {/* < span className="mr-2">{user.firstName}</> */}
+                    {/* <span className="mr-2">{user.firstName}</span> */}
                     <UserButton />
                     <Link
                       to="/profile"
@@ -105,7 +105,7 @@ const Navbar = () => {
             </SignedIn>
             <button
               onClick={toggleDarkMode}
-              className="flex items-center justify-center ml-4 bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
+              className="flex ml-2 items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
             >
               {isDarkMode ? <FiMoon /> : <FiSun />}
             </button>

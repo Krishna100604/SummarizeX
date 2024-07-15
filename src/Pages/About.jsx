@@ -26,22 +26,22 @@ const About = () => {
 
   return (
     <main className="w-full flex flex-col justify-center items-center p-5 dark:bg-[#0f172a]">
-      <h2 className="text-3xl sm:text-2xl md:text-4xl lg:text-6xl font-bold dark:text-sky-400 text-[#004D61]  mb-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold dark:text-sky-400 text-[#004D61] mb-4 text-center">
         About Us
       </h2>
 
       <div
-        className="h-3/4 sm:h-2/4 text-gray-600 dark:text-gray-200"
+        className="w-full flex flex-col items-center text-gray-600 dark:text-gray-200"
         ref={aboutSectionRef}
       >
-        <div className="flex justify-center items-center">
+        <div className="w-full flex flex-col lg:flex-row justify-center items-center">
           <img
-            className="dark:bg-white rounded-full mx-auto"
+            className="dark:bg-white rounded-full mx-auto w-48 h-48 md:w-60 md:h-60 lg:w-80 lg:h-80"
             src={img}
-            alt=""
+            alt="About Us"
           />
-          <div className="  py-2 px-4">
-            <p className=" text-sm sm:text-lg ">
+          <div className="w-full lg:w-1/2 py-2 px-4">
+            <p className="text-sm sm:text-base lg:text-xl">
               <p className="mt-4">
                 In today’s fast-paced world, time is a valuable commodity, and
                 staying informed shouldn't mean spending hours sifting through
@@ -49,7 +49,6 @@ const About = () => {
                 and understand information.
               </p>
               <p className="mt-4">
-                {" "}
                 That’s why we’ve developed a state-of-the-art summarization tool
                 designed to make content more accessible and manageable. Our
                 tool leverages advanced AI algorithms to distill lengthy
@@ -66,14 +65,14 @@ const About = () => {
             </p>
           </div>
         </div>
-        {/* team */}
-        <div>
-          <p className="pt-5 flex flex-col text-xl sm:text-2xl text-center font-bold text-[#ffb39f]">
+        {/* Team */}
+        <div className="w-full mt-8">
+          <p className="flex flex-col text-xl sm:text-2xl text-center font-bold text-[#ffb39f]">
             Developed By:
           </p>
           <div className="flex flex-wrap justify-center mt-4">
             {contributors.map((contributor) => (
-              <div key={contributor.id} className="p-4">
+              <div key={contributor.id} className="p-4 w-1/2 sm:w-1/4 lg:w-1/6">
                 <a
                   href={contributor.html_url}
                   target="_blank"
@@ -83,7 +82,7 @@ const About = () => {
                   <img
                     src={contributor.avatar_url}
                     alt={contributor.login}
-                    className="w-24 h-24 rounded-full mx-auto hover:ring-4 hover:ring-sky-400"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto hover:ring-4 hover:ring-sky-400"
                   />
                   <p className="mt-2 hover:text-sky-400">{contributor.login}</p>
                 </a>

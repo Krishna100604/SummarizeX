@@ -17,7 +17,7 @@ const ProfileDetails = () => {
       >
         <div className="text-center mt-4">
           <h2 className="text-3xl font-semibold dark:text-white">
-            Profile Details
+            Credit Details
           </h2>
         </div>
         <div className="px-6 mt-6">
@@ -27,18 +27,20 @@ const ProfileDetails = () => {
             </span>
             <span className="dark:text-gray-300 font-bold">{credits}</span>
           </div>
-          <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
+          {/* <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
               <FaStar className="mr-2" /> Membership Status : 
             </span>
             <span className="dark:text-gray-300 font-bold">Premium Member</span>
-          </div>
-          <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
+          </div> */}
+          {/* <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
               <FaHistory className="mr-2" /> Recent Activity :
             </span>
-            <span className="dark:text-gray-300 font-bold">Summarized 5 articles</span>
-          </div>
+            <span className="dark:text-gray-300 font-bold">
+              Summarized 5 articles
+            </span>
+          </div> */}
           {/* Add more details as needed */}
           <div className="flex justify-center mt-4">
             <Link to="/payment">
@@ -50,7 +52,7 @@ const ProfileDetails = () => {
         </div>
         <div className="flex justify-center mt-6">
           <Link to="/profile">
-            <button className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 flex items-center">
+            <button className="bg-blue-500 md:text-base text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 flex items-center">
               <FaChevronLeft className="mr-2" /> Go Back
             </button>
           </Link>
