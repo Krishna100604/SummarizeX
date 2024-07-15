@@ -12,6 +12,9 @@ import { CreditProvider } from "./contexts/CreditContext";
 import "./App.css";
 import Footer from "./Footer";
 import ProfileDetails from "./Pages/ProfileDetails";
+import Settings from "./components/Under-Development/Settings";
+import Cards from "./components/Cards/Cards";
+import CreditCard from "./components/Under-Development/CreditCard";
 
 const App = () => {
   return (
@@ -34,6 +37,8 @@ const App = () => {
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/payment" element={<Payment />} />
                   <Route path="/profile-details" element={<ProfileDetails />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/cards" element={<CreditCard />} />
                 </Routes>
               </div>
             </main>

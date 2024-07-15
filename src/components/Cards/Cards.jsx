@@ -9,6 +9,8 @@ import {
   FaSpotify,
   FaShareAlt,
 } from "react-icons/fa";
+import { FaComputer } from "react-icons/fa6";
+import { GiArtificialIntelligence } from "react-icons/gi";
 
 const cardsData = [
   {
@@ -27,7 +29,7 @@ const cardsData = [
     id: 3,
     title: "AI-Powered Technology",
     text: " Utilizes cutting-edge AI algorithms to deliver accurate and informative summaries.",
-    icon: <FaShapes />,
+    icon: <FaComputer />,
   },
   {
     id: 4,
@@ -37,7 +39,7 @@ const cardsData = [
   },
   {
     id: 5,
-    title: " Integration with Speech-To-Text Function",
+    title: " Speech-To-Text Functionality",
     text: " Don't have enough time to read, simply use our speech-to-text functionality to listen to your summaries",
     icon: <FaSpotify />,
   },

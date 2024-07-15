@@ -27,20 +27,20 @@ const ProfileDetails = () => {
             </span>
             <span className="dark:text-gray-300 font-bold">{credits}</span>
           </div>
-          {/* <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
+          <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
-              <FaStar className="mr-2" /> Membership Status : 
+              <FaStar className="mr-2" /> Membership Status :
             </span>
             <span className="dark:text-gray-300 font-bold">Premium Member</span>
-          </div> */}
-          {/* <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
+          </div>
+          <div className="flex items-center justify-between py-2 border-t dark:border-gray-600">
             <span className="flex items-center dark:text-gray-300">
               <FaHistory className="mr-2" /> Recent Activity :
             </span>
             <span className="dark:text-gray-300 font-bold">
               Summarized 5 articles
             </span>
-          </div> */}
+          </div>
           {/* Add more details as needed */}
           <div className="flex justify-center mt-4">
             <Link to="/payment">

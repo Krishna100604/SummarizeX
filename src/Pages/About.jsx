@@ -36,12 +36,12 @@ const About = () => {
       >
         <div className="w-full flex flex-col lg:flex-row justify-center items-center">
           <img
-            className="dark:bg-white rounded-full mx-auto w-48 h-48 md:w-60 md:h-60 lg:w-80 lg:h-80"
+            className="dark:bg-white rounded-full mx-auto "
             src={img}
             alt="About Us"
           />
           <div className="w-full lg:w-1/2 py-2 px-4">
-            <p className="text-sm sm:text-base lg:text-xl">
+            <p className="text-sm sm:text-lg ">
               <p className="mt-4">
                 In today’s fast-paced world, time is a valuable commodity, and
                 staying informed shouldn't mean spending hours sifting through
