@@ -128,7 +128,7 @@ const Home = () => {
         <div className="container mx-auto py-10 px-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.div
-              className="rounded-lg dark:bg-[#1e293b] p-6 border border-blue shadow-xl shadow-blue-200 text-center flex-1 max-w-xs"
+              className="rounded-lg dark:bg-[#1e293b] p-6 border border-blue shadow-xl  text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -160,7 +160,7 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-              className="rounded-lg p-6 dark:bg-[#1e293b] border border-blue shadow-xl  shadow-blue-200 text-center flex-1 max-w-xs"
+              className="rounded-lg p-6 dark:bg-[#1e293b] border border-blue shadow-xl  text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -195,7 +195,7 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-              className="rounded-lg p-6 dark:bg-[#1e293b] border border-blue shadow-xl  shadow-blue-200 text-center flex-1 max-w-xs"
+              className="rounded-lg p-6 dark:bg-[#1e293b] border border-blue shadow-xl text-center flex-1 max-w-xs"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

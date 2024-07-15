@@ -85,7 +85,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center mt-4 lg:mt-0">
             <SignedOut>
-              <SignInButton />
+              <SignInButton className="bg-white text-sky-400 font-semibold rounded-md py-1 px-2" />
             </SignedOut>
             <SignedIn>
               <div className="flex items-center text-white">
@@ -105,7 +105,7 @@ const Navbar = () => {
             </SignedIn>
             <button
               onClick={toggleDarkMode}
-              className="flex ml-2 items-center justify-center bg-gray-200 dark:bg-gray-500 px-2 mr-3 py-1 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
+              className="flex ml-2 items-center justify-center bg-gray-200 dark:bg-gray-500  py-2 px-2 mr-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
             >
               {isDarkMode ? <FiMoon /> : <FiSun />}
             </button>
