@@ -269,7 +269,7 @@ const Demo = () => {
         {/* Toggle Button */}
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className="mt-4 px-4 py-2 text-sm md:text-base bg-blue-500 dark:bg-[#1e293b] w-fit text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+          className="mt-4 px-4 py-2 text-sm md:text-base bg-blue-500 dark:bg-[#1e293b]  w-fit text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
         >
           {showHistory ? "Hide History" : "Show History"}
         </button>
@@ -281,15 +281,15 @@ const Demo = () => {
               <div
                 key={`link-${index}`}
                 onClick={() => setArticle(item)}
-                className="flex items-center p-2 bg-gray-200 dark:bg-[#384966] dark:text-white shadow-md rounded-lg cursor-pointer hover:bg-gray-300"
+                className="flex items-center p-2 bg-blue-50 hover:bg-sky-100 dark:bg-[#384966] dark:hover:bg-slate-800 dark:text-white border border-sky-600 mr-3 dark:border-gray-400 rounded-lg cursor-pointer "
               >
-                <div className=" mr-2" onClick={() => handleCopy(item.url)}>
+                {/* <div className=" mr-2" onClick={() => handleCopy(item.url)}>
                   <img
                     src={copied ? tick : copy}
                     alt="copy_icon"
                     className="w-6 h-6 object-contain"
                   />
-                </div>
+                </div> */}
                 <p className="text-sm truncate">{item.url}</p>
               </div>
             ))}
@@ -308,7 +308,7 @@ const Demo = () => {
             <p className="text-md md:text-lg font-semibold font-inter  dark:text-gray-400 text-center">
               This isn't supposed to happen..
               <br />
-              <span className="text-red-500">{error?.data?.error}</span>
+              {/* <span className="text-red-500">{error?.data?.error}</span> */}
             </p>
           ) : (
             article.summary &&
@@ -328,16 +328,19 @@ const Demo = () => {
                       onClick={() => handleCopySummary(article.summary)}
                     >
                       {copiedSummary ? (
-                        <FaCheck size={18} />
+                        <FaCheck size={18} className="hover:text-[#5BD1D7]" />
                       ) : (
-                        <FaCopy className="cursor-pointer" size={18} />
+                        <FaCopy
+                          className="cursor-pointer hover:text-[#5BD1D7]"
+                          size={18}
+                        />
                       )}
                     </div>
                     <button
                       onClick={handleOpenModal}
                       className="  text-blue-500 dark:text-gray-300"
                     >
-                      <FaShare size={18} />
+                      <FaShare size={18} className="hover:text-[#5BD1D7]" />
                     </button>
                   </div>
                 </div>
@@ -381,13 +384,22 @@ const Demo = () => {
                     <div className="">
                       <button
                         onClick={toggleDropdown}
-                        className="font-medium rounded-lg gap-1 hover:text-blue-700 text-blue-500 dark:text-gray-300 flex items-center"
+                        className="font-medium rounded-lg gap-1 text-blue-500 dark:text-gray-300 flex items-center"
                       >
-                        <FaDownload size={20} />
+                        <FaDownload
+                          className="hover:text-[#5BD1D7]"
+                          size={20}
+                        />
                         {isDropdownOpen ? (
-                          <FaChevronUp size={15} />
+                          <FaChevronUp
+                            size={15}
+                            className="hover:text-[#5BD1D7]"
+                          />
                         ) : (
-                          <FaChevronDown size={15} />
+                          <FaChevronDown
+                            size={15}
+                            className="hover:text-[#5BD1D7]"
+                          />
                         )}
                       </button>
                       {isDropdownOpen && (
@@ -395,14 +407,14 @@ const Demo = () => {
                           <div className="py-1">
                             <button
                               onClick={downloadPDF}
-                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2"
+                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-400  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2"
                             >
                               <FaDownload size={16} />
                               Download as PDF
                             </button>
                             <button
                               onClick={downloadDOC}
-                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-200  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2 "
+                              className="px-4 py-2 text-sm text-blue-600 hover:bg-blue-400  dark:text-white hover:text-blue-900 w-full text-left flex items-center gap-2 "
                             >
                               <FaDownload size={16} />
                               Download as DOC

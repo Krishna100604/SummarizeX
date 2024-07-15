@@ -38,7 +38,7 @@ const ShareModal = ({ isOpen, onClose, article }) => {
       <div className="absolute inset-0 bg-gray-800 bg-opacity-50 backdrop-blur-sm"></div>
       <div className="relative  bg-gray-100 dark:bg-gray-600 rounded-lg shadow-lg p-8 w-11/12 max-w-2xl mx-auto">
         <button
-          className="absolute top-4 right-4 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-500 text-2xl"
+          className="absolute top-4 right-4 text-gray-500 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-400 text-2xl"
           onClick={onClose}
         >
           &times;
