@@ -30,7 +30,7 @@ const Demo = () => {
   const [isLoading, setLoading] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("en"); // Default language
   const [isSpeaking, setIsSpeaking] = useState(false); // Track if TTS is currently speaking
-
+  const [copiedIndex, setCopiedIndex] = useState(null);
   const { credits, updateCredits } = useContext(CreditContext);
   const [getSummary, { error }] = useLazyGetSummaryQuery();
   const summaryRef = useRef(null);
@@ -87,12 +87,6 @@ const Demo = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleCopy = (copyUrl) => {
-    setCopied(true);
-    navigator.clipboard.writeText(copyUrl);
-    setTimeout(() => setCopied(false), 3000);
   };
 
   const handleCopySummary = (summary) => {
@@ -218,9 +212,14 @@ const Demo = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const summaryParagraphs = article.summary.split(
-    /(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s/g
-  );
+  const handleCopy = (url, index) => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopiedIndex(index);
+      setTimeout(() => {
+        setCopiedIndex(null);
+      }, 2000); // Reset the copiedIndex after 2 seconds
+    });
+  };
 
   const readingTime = calculateReadingTime(article.summary);
 
@@ -279,22 +278,29 @@ const Demo = () => {
         </button>
 
         {/* Browse URL history */}
+
         {showHistory && (
           <div className="flex flex-col gap-2 max-h-60 w-60 sm:w-full mt-4">
             {allArticles.map((item, index) => (
               <div
                 key={`link-${index}`}
                 onClick={() => setArticle(item)}
-                className="flex items-center p-1 sm:p-2 bg-blue-50 hover:bg-sky-100 dark:bg-[#384966] dark:hover:bg-slate-800 dark:text-white border border-sky-600 mr-1 dark:border-gray-400 rounded-lg cursor-pointer  "
+                className="flex items-center p-1 sm:p-2 bg-blue-50 hover:bg-sky-100 dark:bg-[#384966] dark:hover:bg-slate-800 dark:text-white border border-sky-600 mr-1 dark:border-gray-400 rounded-lg cursor-pointer"
               >
-                {/* <div className=" mr-2" onClick={() => handleCopy(item.url)}>
+                <div
+                  className="mr-2"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCopy(item.url, index);
+                  }}
+                >
                   <img
-                    src={copied ? tick : copy}
+                    src={copiedIndex === index ? tick : copy}
                     alt="copy_icon"
                     className="w-6 h-6 object-contain"
                   />
-                </div> */}
-                <p className=" text-xs sm:text-sm truncate">{item.url}</p>
+                </div>
+                <p className="text-xs sm:text-sm truncate">{item.url}</p>
               </div>
             ))}
           </div>
@@ -348,34 +354,10 @@ const Demo = () => {
                     </button>
                   </div>
                 </div>
-                {/* <div className="summary_box ">
+                <div className="summary_box ">
                   <p className="font-inter font-medium text-sm text-gray-700  dark:text-gray-200">
                     {article.summary}
                   </p>
-                </div> */}
-
-                {/* <div className="summary_box">
-                  {summaryParagraphs.map((paragraph, index) => (
-                    <p
-                      key={index}
-                      className="font-inter font-medium text-sm text-gray-700 dark:text-gray-200"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div> */}
-
-                <div className="summary_box">
-                  <ul className="list-disc  list-inside">
-                    {summaryParagraphs.map((paragraph, index) => (
-                      <li
-                        key={index}
-                        className="font-inter mt-1 font-medium text-sm text-gray-700 dark:text-gray-200"
-                      >
-                        {paragraph}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 <div className="text-sm text-gray-600 dark:text-gray-300">
