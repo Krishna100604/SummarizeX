@@ -218,6 +218,10 @@ const Demo = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
+  const summaryParagraphs = article.summary.split(
+    /(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s/g
+  );
+
   const readingTime = calculateReadingTime(article.summary);
 
   return (
@@ -225,7 +229,7 @@ const Demo = () => {
       <div className="flex flex-col w-full gap-4">
         {/* Search */}
         <form
-          className="relative bg-sky-100 flex justify-center items-center shadow-lg p-4 rounded-lg  dark:bg-[#1e293b]"
+          className="relative bg-sky-100 flex justify-center items-center shadow-lg p-2 sm:p-3 rounded-lg  dark:bg-[#1e293b]"
           onSubmit={handleSubmit}
         >
           <FaLink size={22} className="text-blue-500 dark:text-white mr-2" />
@@ -239,7 +243,7 @@ const Demo = () => {
           />
           <button
             type="submit"
-            className="ml-2 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
+            className="ml-2 px-2 sm:px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
           >
             <FaChevronRight size={17} />
           </button>
@@ -276,12 +280,12 @@ const Demo = () => {
 
         {/* Browse URL history */}
         {showHistory && (
-          <div className="flex flex-col gap-2 max-h-60 overflow-y-auto mt-4">
+          <div className="flex flex-col gap-2 max-h-60 w-60 sm:w-full mt-4">
             {allArticles.map((item, index) => (
               <div
                 key={`link-${index}`}
                 onClick={() => setArticle(item)}
-                className="flex items-center p-2 bg-blue-50 hover:bg-sky-100 dark:bg-[#384966] dark:hover:bg-slate-800 dark:text-white border border-sky-600 mr-3 dark:border-gray-400 rounded-lg cursor-pointer "
+                className="flex items-center p-1 sm:p-2 bg-blue-50 hover:bg-sky-100 dark:bg-[#384966] dark:hover:bg-slate-800 dark:text-white border border-sky-600 mr-1 dark:border-gray-400 rounded-lg cursor-pointer  "
               >
                 {/* <div className=" mr-2" onClick={() => handleCopy(item.url)}>
                   <img
@@ -290,7 +294,7 @@ const Demo = () => {
                     className="w-6 h-6 object-contain"
                   />
                 </div> */}
-                <p className="text-sm truncate">{item.url}</p>
+                <p className=" text-xs sm:text-sm truncate">{item.url}</p>
               </div>
             ))}
           </div>
@@ -344,10 +348,34 @@ const Demo = () => {
                     </button>
                   </div>
                 </div>
-                <div className="summary_box ">
+                {/* <div className="summary_box ">
                   <p className="font-inter font-medium text-sm text-gray-700  dark:text-gray-200">
                     {article.summary}
                   </p>
+                </div> */}
+
+                {/* <div className="summary_box">
+                  {summaryParagraphs.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="font-inter font-medium text-sm text-gray-700 dark:text-gray-200"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div> */}
+
+                <div className="summary_box">
+                  <ul className="list-disc  list-inside">
+                    {summaryParagraphs.map((paragraph, index) => (
+                      <li
+                        key={index}
+                        className="font-inter mt-1 font-medium text-sm text-gray-700 dark:text-gray-200"
+                      >
+                        {paragraph}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="text-sm text-gray-600 dark:text-gray-300">
