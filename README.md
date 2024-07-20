@@ -5,7 +5,7 @@ Welcome to the SummarizeX ! This project is designed to provide users with the a
 
 ## Introduction
 
-The AI Summarizer Web Application is built to help users quickly summarize articles or text using artificial intelligence. It utilizes React for the frontend, integrates with external services for article summarization, and provides a user-friendly interface for interacting with the application.
+The SummarizeX is built to help users quickly summarize articles or text using artificial intelligence. It utilizes React for the frontend, integrates with external services for article summarization, and provides a user-friendly interface for interacting with the application.
 
 ## Features
 
