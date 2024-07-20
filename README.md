@@ -1,6 +1,6 @@
-# AI Summarizer Web Application
+# AI Summarizer Web Application : SummarizeX
 
-Welcome to the AI Summarizer Web Application! This project is designed to provide users with the ability to summarize articles using AI technology.
+Welcome to the SummarizeX ! This project is designed to provide users with the ability to summarize articles using AI technology.
 
 
 ## Introduction
